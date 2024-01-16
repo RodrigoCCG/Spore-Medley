@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0xev1s6rcq4r"]
+
+[ext_resource type="Texture2D" uid="uid://djatkiqqvm4ja" path="res://Placeholders/concept_art_enviro_and_size_comparison.jpg" id="1_4tv1x"]
+[ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Baby/Baby.tscn" id="2_verq7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s4pco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir0rl"]
+size = Vector2(1909, 199.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81607"]
+size = Vector2(129, 1071.5)
+
+[node name="MainScene" type="Node2D"]
+material = SubResource("CanvasItemMaterial_s4pco")
+position = Vector2(0, -1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-4, 0)
+zoom = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ConceptArtEnviroAndSizeComparison" type="Sprite2D" parent="StaticBody2D"]
+z_index = -1
+position = Vector2(-3, -1)
+texture = ExtResource("1_4tv1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.5, 434.75)
+shape = SubResource("RectangleShape2D_ir0rl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1018, -1)
+shape = SubResource("RectangleShape2D_81607")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1017, -1)
+shape = SubResource("RectangleShape2D_81607")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_verq7")]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(-56, 78)
+scale = Vector2(1.33984, 1.33546)
+polygon = PackedVector2Array(471, -105, 394, -56, 554, -58)
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(603, 205, 656, 101, 775, 84, 866, 155)
+one_way_collision = true

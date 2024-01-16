@@ -22,14 +22,10 @@ func _physics_process(delta):
 		velocity.y += JUMP_SPEED
 	var direction = Input.get_axis("ui_left","ui_right")
 	if direction:
-		"""if is_on_floor():
-			if direction * HORIZONTAL_SPEED < HORIZONTAL_SPEED_CAP:
-				if HORIZONTAL_SPEED * direction < 0:
-					HORIZONTAL_SPEED = 10 * direction * -1
-				HORIZONTAL_SPEED += direction * ACCELERATION * HORIZONTAL_SPEED_CAP * delta
-		else:
-			"""
-		HORIZONTAL_SPEED = direction * ACCELERATION * HORIZONTAL_SPEED_CAP
+		if direction * HORIZONTAL_SPEED < HORIZONTAL_SPEED_CAP:
+			if HORIZONTAL_SPEED * direction < 0:
+				HORIZONTAL_SPEED = 10 * direction * -1
+			HORIZONTAL_SPEED += direction * ACCELERATION * HORIZONTAL_SPEED_CAP * delta
 		velocity.x =  HORIZONTAL_SPEED
 	else:
 		if HORIZONTAL_SPEED < 10 and HORIZONTAL_SPEED > -10 : HORIZONTAL_SPEED = 0
