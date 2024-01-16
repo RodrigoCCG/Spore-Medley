@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://rx5noov6k7uo"]
+
+[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Leveldesign/Tiles/tiles.tres" id="1_e3dkj"]
+
+[node name="Intromap" type="Node2D"]
+
+[node name="Room1" type="TileMap" parent="."]
+tile_set = ExtResource("1_e3dkj")
+format = 2
+
+[node name="Room2" type="TileMap" parent="."]
+tile_set = ExtResource("1_e3dkj")
+format = 2
+
+[node name="Room3" type="TileMap" parent="."]
+tile_set = ExtResource("1_e3dkj")
+format = 2
