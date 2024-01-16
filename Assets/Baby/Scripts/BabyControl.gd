@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 var HORIZONTAL_SPEED = 0.0
 var HORIZONTAL_SPEED_CAP = 650.0
-var JUMP_SPEED = -750.0
+var JUMP_SPEED = -900.0
 var ACCELERATION = 1.5
 var DECCELETATION = .3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity_mod = 1.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,8 +18,8 @@ func _process(delta):
 	
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		velocity.y += gravity_mod * gravity * delta
+	if Input.is_key_pressed(KEY_SPACE) and is_on_floor():
 		velocity.y += JUMP_SPEED
 	var direction = Input.get_axis("ui_left","ui_right")
 	if direction:
