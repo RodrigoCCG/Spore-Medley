@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://doyka7qfid77e"]
+
+[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Leveldesign/Tiles/tiles.tres" id="1_le71s"]
+[ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Baby/Baby.tscn" id="2_0wdm5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_le71s")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 65535, 65536, 0, 65534, 65536, 0, 65533, 65536, 0, 65532, 65536, 0, 65531, 65536, 0, 131067, 65536, 0, 131068, 65536, 0, 131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_0wdm5")]
+position = Vector2(-7, -126)

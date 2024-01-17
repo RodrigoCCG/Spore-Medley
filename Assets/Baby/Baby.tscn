@@ -78,13 +78,13 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_0n6fg")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_rrd51")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_jwmdf")
 }],
 "loop": false,
@@ -145,5 +145,5 @@ scale = Vector2(5.865, 7.185)
 shape = SubResource("CapsuleShape2D_3vuaj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.45, 0.45)
 script = ExtResource("3_04pkc")
