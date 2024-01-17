@@ -37,6 +37,8 @@ position = Vector2(1017, -1)
 shape = SubResource("RectangleShape2D_81607")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_verq7")]
+self_modulate = Color(1, 0.231373, 1, 1)
+position = Vector2(-37, 52)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

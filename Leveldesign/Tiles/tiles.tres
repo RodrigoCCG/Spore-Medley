@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cr51i7n0f84j5"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cr51i7n0f84j5"]
 
 [ext_resource type="Texture2D" uid="uid://bbt6187kyfjxk" path="res://Leveldesign/Tiles/Unbenannt.png" id="1_7mhg1"]
+
+[sub_resource type="GDScript" id="GDScript_jtu0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kf6a"]
 texture = ExtResource("1_7mhg1")
@@ -675,3 +677,4 @@ texture_region_size = Vector2i(150, 150)
 [resource]
 tile_size = Vector2i(150, 150)
 sources/0 = SubResource("TileSetAtlasSource_3kf6a")
+script = SubResource("GDScript_jtu0r")

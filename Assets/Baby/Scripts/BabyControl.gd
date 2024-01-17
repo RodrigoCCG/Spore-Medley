@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var animationbeta = $AnimatedSprite2D
 
 var HORIZONTAL_SPEED = 0.0
 var HORIZONTAL_SPEED_CAP = 650.0
@@ -13,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func _physics_process(delta):
@@ -31,5 +32,24 @@ func _physics_process(delta):
 	else:
 		if HORIZONTAL_SPEED < 10 and HORIZONTAL_SPEED > -10 : HORIZONTAL_SPEED = 0
 		else: HORIZONTAL_SPEED *= DECCELETATION * delta
-		velocity.x =  HORIZONTAL_SPEED		
+		velocity.x =  HORIZONTAL_SPEED
 	move_and_slide()
+	handle_animation()
+
+func handle_animation():
+	if velocity.x < 0:
+		animationbeta.flip_h = true
+	elif HORIZONTAL_SPEED > 0:
+		animationbeta.flip_h = false
+
+	if HORIZONTAL_SPEED != 0 and is_on_floor():
+		animationbeta.play("Walk")
+	elif Input.is_action_just_pressed("ui_accept"):
+		animationbeta.play("Jump")
+	elif velocity.y > 0:
+		animationbeta.play("Fall")
+	elif velocity.y < 0:
+		animationbeta.play("Rise")
+	elif velocity.x == 0 and velocity.y == 0:
+		animationbeta.play("Idle")
+
