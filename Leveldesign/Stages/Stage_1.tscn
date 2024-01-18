@@ -1,14 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://doyka7qfid77e"]
+[gd_scene load_steps=6 format=3 uid="uid://doyka7qfid77e"]
 
-[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Leveldesign/Tiles/tiles.tres" id="1_le71s"]
+[ext_resource type="Texture2D" uid="uid://o0pwmr4gev2f" path="res://Environments/T_TREEBRANCH_LEFT_CENTER_RIGHT.png" id="1_vgp1k"]
 [ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Baby/Baby.tscn" id="2_0wdm5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_apent"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1ydt"]
+resource_name = "Wood"
+texture = ExtResource("1_vgp1k")
+texture_region_size = Vector2i(150, 150)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[sub_resource type="TileSet" id="TileSet_d6ak0"]
+tile_size = Vector2i(150, 150)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_apent")
+terrain_set_0/mode = 2
+sources/0 = SubResource("TileSetAtlasSource_w1ydt")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("1_le71s")
+tile_set = SubResource("TileSet_d6ak0")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 65535, 65536, 0, 65534, 65536, 0, 65533, 65536, 0, 65532, 65536, 0, 65531, 65536, 0, 131067, 65536, 0, 131068, 65536, 0, 131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0)
+layer_0/tile_data = PackedInt32Array(0, 131072, 0, 1, 131072, 0, 2, 0, 0, 3, 131072, 0, 4, 0, 0, 65535, 65536, 0, 65534, 0, 0, 65533, 131072, 0, 65532, 0, 0, 65531, 65536, 0, 131067, 65536, 0, 131068, 65536, 0, 131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65530, 131072, 0, -5, 0, 0, -65541, 65536, 0, -131077, 0, 0, -196613, 0, 0, -196610, 0, 0, -262146, 0, 0, -327682, 0, 0, -393218, 0, 0, -262149, 0, 0, -327685, 0, 0, -393221, 0, 0, -458754, 0, 0, -524290, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -458757, 0, 0, -524293, 0, 0, -589829, 0, 0, -655365, 0, 0, -720901, 0, 0, -786437, 0, 0, -851973, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 0, -851969, 0, 0, -917504, 0, 0, -917503, 0, 0, -917502, 0, 0, -917501, 0, 0, -917500, 0, 0, -917499, 0, 0, -655355, 0, 0, -655354, 0, 0, -720890, 0, 0, -786426, 0, 0, -851962, 0, 0, -917498, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -196604, 0, 0, -131068, 0, 0, -65532, 0, 0, 131066, 131072, 0, 65541, 65536, 0, 5, 0, 0, -65531, 65536, 0, -131067, 65536, 0, -196603, 0, 0, -262139, 65536, 0, -327675, 65536, 0, -393211, 65536, 0, -458747, 65536, 0, -524283, 65536, 0, -589819, 65536, 0, -589820, 65536, 0, -589821, 65536, 0, -589822, 65536, 0, -589823, 65536, 0, -589824, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -393216, 65536, 0, -458752, 65536, 0, -524288, 65536, 0, -524287, 65536, 0, -458751, 65536, 0, -393215, 0, 0, -327679, 65536, 0, -327678, 65536, 0, -393214, 0, 0, -458750, 65536, 0, -524286, 65536, 0, -524285, 65536, 0, -458749, 65536, 0, -393213, 0, 0, -327677, 65536, 0, -327676, 65536, 0, -393212, 0, 0, -458748, 65536, 0, -524284, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 65536, 0, -393210, 65536, 0, -327674, 0, 0, -262138, 0, 0, -196602, 65536, 0, -131066, 65536, 0, -65530, 65536, 0, 6, 65536, 0, 65542, 65536, 0, -851974, 65536, 0, -786438, 65536, 0, -720902, 65536, 0, -655366, 65536, 0, -589830, 65536, 0, -524294, 65536, 0, -458758, 65536, 0, -393222, 65536, 0, -327686, 65536, 0, -262150, 65536, 0, -196614, 131072, 0, -131078, 65536, 0, -65542, 65536, 0, -6, 65536, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_0wdm5")]
 position = Vector2(-7, -126)
