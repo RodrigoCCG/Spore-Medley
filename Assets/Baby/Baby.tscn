@@ -128,8 +128,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vuaj"]
-height = 31.1761
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6la7c"]
+size = Vector2(20, 34.6555)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_boxct")
@@ -140,9 +140,9 @@ sprite_frames = SubResource("SpriteFrames_jw5jf")
 animation = &"Impact"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -112)
+position = Vector2(0, -125.5)
 scale = Vector2(5.865, 7.185)
-shape = SubResource("CapsuleShape2D_3vuaj")
+shape = SubResource("RectangleShape2D_6la7c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.45, 0.45)

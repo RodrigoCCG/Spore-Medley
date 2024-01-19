@@ -13,23 +13,23 @@ texture_region_size = Vector2i(150, 150)
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(53.7401, -75, 75, -55.1543, 75, 55.1543, 53.7401, 75, -56.5685, 75, -75, 53.7401, -75, -55.1543, -56.5685, -75)
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(53.7401, -75, 75, -55.1543, 75, 55.1543, 53.7401, 75, -56.5685, 75, -75, 53.7401, -75, -55.1543, -56.5685, -75)
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(53.7401, -75, 75, -55.1543, 75, 55.1543, 53.7401, 75, -56.5685, 75, -75, 53.7401, -75, -55.1543, -56.5685, -75)
 
 [sub_resource type="TileSet" id="TileSet_d6ak0"]
 tile_size = Vector2i(150, 150)
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_apent")
-terrain_set_0/mode = 2
+terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_w1ydt")
 
 [node name="Node2D" type="Node2D"]

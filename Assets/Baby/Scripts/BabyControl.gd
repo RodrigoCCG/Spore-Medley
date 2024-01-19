@@ -91,7 +91,11 @@ func player_walljump(delta):
 			LAST_DIRECTION *= -1
 			velocity.x = HORIZONTAL_SPEED_CAP * LAST_DIRECTION
 			DASHING = true
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.05).timeout
+			if is_on_wall() or is_on_floor():
+				DASHING = false
+			else:
+				await get_tree().create_timer(0.45).timeout
 			DASHING = false
 	WALLGRAB = false
 
