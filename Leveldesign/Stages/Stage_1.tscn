@@ -32,7 +32,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_apent")
 terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_w1ydt")
 
-[node name="Node2D" type="Node2D"]
+[node name="Stage1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_d6ak0")

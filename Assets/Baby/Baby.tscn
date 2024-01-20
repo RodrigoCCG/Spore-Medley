@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://ic47q518di3d"]
+[gd_scene load_steps=20 format=3 uid="uid://ic47q518di3d"]
 
 [ext_resource type="Script" path="res://Assets/Baby/Scripts/BabyControl.gd" id="1_boxct"]
 [ext_resource type="Texture2D" uid="uid://qg37edwkkd77" path="res://Assets/Baby/Sprite_sheet_baby_sketches_1_standing_walking_jumping_falling_fixed.png" id="2_3jmi5"]
 [ext_resource type="Script" path="res://Assets/Camera/CameraScript.gd" id="3_04pkc"]
+[ext_resource type="PackedScene" uid="uid://ddiprpecqaag6" path="res://Assets/Baby/hook.tscn" id="4_f8wxv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wlxl"]
 atlas = ExtResource("2_3jmi5")
@@ -147,3 +148,6 @@ shape = SubResource("RectangleShape2D_6la7c")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.45, 0.45)
 script = ExtResource("3_04pkc")
+
+[node name="Hook" parent="." instance=ExtResource("4_f8wxv")]
+position = Vector2(40, 45)
