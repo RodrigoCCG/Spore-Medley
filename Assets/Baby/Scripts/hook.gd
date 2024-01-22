@@ -9,12 +9,13 @@ var links # A slightly easier reference to the links
 var tip_body	# A slightly easier reference to the Hook Tip
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip_pos := Vector2(0,0)			# The global position the tip should be in
+var rope_length = 0
 								# We use an extra var for this, because the chain is 
 								# connected to the player and thus all .position
 								# properties would get messed with when the player
 								# moves.
 var side = 0
-const SPEED = 30	# The speed with which the chain moves
+const SPEED = 1500	# The speed with which the chain moves
 
 var flying = false	# Whether the chain is moving through the air
 var hooked = false	# Whether the chain has connected to a wall
@@ -48,14 +49,16 @@ func _process(_delta: float) -> void:
 	links.region_rect.size.y = local_pos.length()		# and get extended for the distance between (0,0) and the tip
 
 # Every physics frame we update the tip position
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	tip_body.global_position = tip_pos	# The player might have moved and thus updated the position of the tip -> reset it
 	if flying:
-		var tip_colision = tip_body.move_and_collide(direction * SPEED)
+		var tip_colision = tip_body.move_and_collide(direction * SPEED * delta)
 		# `if move_and_collide()` always moves, but returns true if we did collide
 		if tip_colision:
 			if tip_colision.get_collider().name != "CharacterBody2D":
 				print(tip_colision.get_collider().name)
+				rope_length = tip_pos.distance_to(get_parent().global_position)
+				print(rope_length)
 				hooked = true	# Got something!
 				flying = false	# Not flying anymore
 		if (tip_body.global_position - tip_pos).length() > 1000: release()

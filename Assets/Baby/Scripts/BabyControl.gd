@@ -19,9 +19,17 @@ const DASH_COOLDOWN = 0.5
 const DASH_DECCELERATION = 0.3
 var DASHING = false
 var WALL_JUMP = false
+#Hook Variables
+var HOOK
+#Inventory
+var HAS_FLUTE = true
+var HAS_TUBA = true
+var HAS_CYMBAL = true
+var HAS_GUITAR = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	HOOK = $Hook
 	pass # Replace with function body.
 
 
@@ -43,24 +51,45 @@ func _physics_process(delta):
 	#Stop player from Wall Jumping/Dashing simultaneously
 	if !DASHING:
 		#Wall Jump
-			if !is_on_floor() and is_on_wall():
+			if HAS_CYMBAL and !is_on_floor() and is_on_wall():
 				if Input.is_action_just_pressed("jump")and direction * LAST_DIRECTION > 0 :
 					player_walljump()
 		#Dash
-			if DASH_READY and Input.is_action_just_pressed("dash"):
+			if HAS_TUBA and DASH_READY and Input.is_action_just_pressed("dash"):
 				player_dash(LAST_DIRECTION)
 	#Gravity
 	if !is_on_floor():
 		velocity.y += gravity_mod * gravity * delta
 	#Hookshot
-	if Input.is_action_just_pressed("shoot"):
-		$Hook.shoot(LAST_DIRECTION)
-	if Input.is_action_just_released("shoot"):
-		$Hook.release()
+	if HAS_GUITAR and HOOK != null:
+		if Input.is_action_just_pressed("shoot"):
+			HOOK.shoot(LAST_DIRECTION)
+		if Input.is_action_just_released("shoot"):
+			HOOK.release()
+	if HOOK.hooked:
+		hooked_movement(delta)
 	#Base Movement Physics
 	move_and_slide()
 	#Animation
 	handle_animation()
+
+func hooked_movement(delta):
+	var hook_pos = HOOK.tip_pos
+	var rope_len = HOOK.rope_length
+	var radius : Vector2 = global_position - hook_pos
+	print(radius)
+	print(radius.length())
+	if velocity.length() < 0.01 or radius.length() < 10: return
+	var angle = acos(radius.dot(velocity) / (radius.length() * velocity.length()))
+	var rad_vel = cos(angle) * velocity.length()
+	velocity += radius.normalized() * -rad_vel
+	
+	if global_position.distance_to(hook_pos) > rope_len : 
+		global_position = hook_pos + radius.normalized() * rope_len
+	
+	velocity += (hook_pos - global_position).normalized() * 15000 * delta
+	print(velocity)
+	pass
 
 func player_movement(direction,delta):
 	#
