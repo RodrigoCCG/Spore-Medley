@@ -54,7 +54,9 @@ func _physics_process(delta):
 		velocity.y += gravity_mod * gravity * delta
 	#Hookshot
 	if Input.is_action_just_pressed("shoot"):
-		$Hook.shoot(get_viewport().size * 0.5)
+		$Hook.shoot(LAST_DIRECTION)
+	if Input.is_action_just_released("shoot"):
+		$Hook.release()
 	#Base Movement Physics
 	move_and_slide()
 	#Animation
@@ -62,7 +64,7 @@ func _physics_process(delta):
 
 func player_movement(direction,delta):
 	#
-	if direction != 0:
+	if direction != 0 and !DASHING:
 		if direction * velocity.x < HORIZONTAL_SPEED_CAP:
 			if velocity.x * direction < 0:
 				velocity.x = 10 * direction * -1
