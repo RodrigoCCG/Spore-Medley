@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0xev1s6rcq4r"]
+[gd_scene load_steps=7 format=3 uid="uid://c0xev1s6rcq4r"]
 
+<<<<<<< Updated upstream:Scenes/MainScene.tscn
 [ext_resource type="Script" path="res://Scenes/MainScene.gd" id="1_ntlwa"]
 [ext_resource type="Shader" path="res://Scenes/Background.gdshader" id="1_oon4c"]
 [ext_resource type="Texture2D" uid="uid://bkxuve8hbkbk0" path="res://Assets/Environment/Backgrounds/scene_1__background_1.png" id="2_hyb84"]
+=======
+[ext_resource type="Script" path="res://Environments/MainScene.gd" id="1_ntlwa"]
+[ext_resource type="Shader" path="res://Environments/Background.gdshader" id="1_oon4c"]
+[ext_resource type="Texture2D" uid="uid://bkxuve8hbkbk0" path="res://Environments/scene_1__background_1.png" id="2_hyb84"]
+[ext_resource type="Texture2D" uid="uid://ce2ffmdeno7ym" path="res://Leveldesign/LVBatch1/BeethovenFBG.png" id="4_8wjg1"]
+>>>>>>> Stashed changes:Environments/MainScene.tscn
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s4pco"]
 
@@ -37,5 +44,8 @@ texture = ExtResource("2_hyb84")
 flip_h = true
 
 [node name="BGL3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
 
 [node name="BatchBG" type="Sprite2D" parent="ParallaxBackground/BGL3"]
+scale = Vector2(1.50351, 1)
+texture = ExtResource("4_8wjg1")

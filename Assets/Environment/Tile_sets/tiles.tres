@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cr51i7n0f84j5"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cltc6jlv8lclb"]
 
 [ext_resource type="Texture2D" uid="uid://ct68bico64j6f" path="res://Assets/Environment/Tile_sets/Ground tiles BETTER more cartoony.png" id="1_ldpoe"]
 [ext_resource type="Texture2D" uid="uid://bgh7ujet2q64r" path="res://Assets/Environment/Tile_sets/Ground tile.png" id="1_mn8li"]
