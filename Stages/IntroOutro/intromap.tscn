@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Stages/IntroOutro/intromap.gd" id="1_gx1r0"]
 [ext_resource type="Texture2D" path="res://Leveldesign/IntroOutro/SecondFBG.png" id="2_46tks"]
-[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Assets/Environment/Tile_sets/tiles.tres" id="3_bilrq"]
+[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Assets/Environment/Tile_sets/Backup/tiles.tres" id="3_bilrq"]
 [ext_resource type="Texture2D" path="res://Leveldesign/IntroOutro/BeethovenFBG.png" id="4_2ccvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63nr7"]

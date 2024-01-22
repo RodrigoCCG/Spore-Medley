@@ -133,39 +133,19 @@ animations = [{
 size = Vector2(20, 39.2728)
 
 [node name="Baby" type="CharacterBody2D"]
-<<<<<<< Updated upstream:Assets/Characters/Baby/Baby.tscn
 script = ExtResource("1_k1lki")
-=======
-collision_mask = 6
-script = ExtResource("1_boxct")
->>>>>>> Stashed changes:Assets/Baby/Baby.tscn
-
-[node name="Hook" parent="." instance=ExtResource("4_f8wxv")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jw5jf")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.544)
-scale = Vector2(2.933, 3.593)
+position = Vector2(0, 7.08746)
+scale = Vector2(5.865, 7.185)
 shape = SubResource("RectangleShape2D_6la7c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-<<<<<<< Updated upstream:Assets/Characters/Baby/Baby.tscn
 zoom = Vector2(0.45, 0.45)
 script = ExtResource("3_wxbm6")
 
 [node name="Hook" parent="." instance=ExtResource("4_q2e48")]
-=======
-zoom = Vector2(0.7, 0.7)
-script = ExtResource("3_04pkc")
-
-[node name="Respawner" type="Area2D" parent="."]
-
-[node name="Respawnshape" type="CollisionShape2D" parent="Respawner"]
-position = Vector2(0, 3.544)
-scale = Vector2(2.933, 3.593)
-shape = SubResource("RectangleShape2D_6la7c")
->>>>>>> Stashed changes:Assets/Baby/Baby.tscn

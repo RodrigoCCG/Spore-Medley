@@ -20,12 +20,5 @@ func load_room():
 
 
 
-<<<<<<< Updated upstream:Stages/LVBatch1/LVB1.gd
 func _on_r_1_exit_area_entered(_area):
 	queue_free()
-=======
-func _on_r_1_exit_area_entered(area):
-	remove_child(room_1)
-	add_child(room_2)
-	baby.position = r_2
->>>>>>> Stashed changes:Leveldesign/LVBatch1/LVB1.gd
