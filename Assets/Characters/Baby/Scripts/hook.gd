@@ -61,5 +61,5 @@ func _physics_process(delta: float) -> void:
 				print(rope_length)
 				hooked = true	# Got something!
 				flying = false	# Not flying anymore
-		if (tip_body.global_position - tip_pos).length() > 1000: release()
+		if (get_parent().global_position - tip_pos).length() > 1500: release()
 	tip_pos = tip_body.global_position	# set `tip` as starting position for next frame
