@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://beuq7cf5ih0y6"]
+
+[ext_resource type="Script" path="res://Stages/IntroOutro/intromap.gd" id="1_gx1r0"]
+[ext_resource type="Texture2D" path="res://Leveldesign/IntroOutro/SecondFBG.png" id="2_46tks"]
+[ext_resource type="TileSet" uid="uid://cr51i7n0f84j5" path="res://Assets/Environment/Tile_sets/tiles.tres" id="3_bilrq"]
+[ext_resource type="Texture2D" path="res://Leveldesign/IntroOutro/BeethovenFBG.png" id="4_2ccvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63nr7"]
+size = Vector2(306, 298)
+
+[node name="Intromap" type="Node2D"]
+script = ExtResource("1_gx1r0")
+
+[node name="Room1" type="Node2D" parent="."]
+
+[node name="R1Background" type="Sprite2D" parent="Room1"]
+position = Vector2(1926, 1263)
+scale = Vector2(1.69298, 1.56173)
+texture = ExtResource("2_46tks")
+
+[node name="R1Tiles" type="TileMap" parent="Room1"]
+tile_set = ExtResource("3_bilrq")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 524288, 1, 0, 458752, 1, 0, 393216, 1, 0, 589830, 1, 0, 589831, 1, 0, 524295, 1, 0, 458760, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 524302, 1, 0, 524303, 1, 0, 327680, 1, 0)
+
+[node name="R1Exit" type="StaticBody2D" parent="Room1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/R1Exit"]
+position = Vector2(154, 150)
+shape = SubResource("RectangleShape2D_63nr7")
+
+[node name="Room2" type="Node2D" parent="."]
+visible = false
+
+[node name="R2Background" type="Sprite2D" parent="Room2"]
+position = Vector2(1136, 800)
+texture = ExtResource("2_46tks")
+
+[node name="R2Tiles" type="TileMap" parent="Room2"]
+tile_set = ExtResource("3_bilrq")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589839, 1, 0, 589838, 1, 0, 589837, 1, 0, 589836, 1, 0, 589835, 1, 0, 589834, 1, 0, 589833, 1, 0, 589832, 1, 0, 589831, 1, 0, 589830, 1, 0, 589829, 1, 0, 589828, 1, 0, 589827, 1, 0, 589826, 1, 0, 589825, 1, 0, 589824, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0)
+
+[node name="Room3" type="Node2D" parent="."]
+visible = false
+
+[node name="R3Background" type="Sprite2D" parent="Room3"]
+position = Vector2(1136, 808)
+texture = ExtResource("4_2ccvn")
+
+[node name="R3Tiles" type="TileMap" parent="Room3"]
+tile_set = ExtResource("3_bilrq")
+format = 2
+layer_0/tile_data = PackedInt32Array(524302, 1, 0, 524301, 1, 0, 524300, 1, 0, 524299, 1, 0, 524298, 1, 0, 524297, 1, 0, 524296, 1, 0, 524295, 1, 0, 524294, 1, 0, 524293, 1, 0, 524292, 1, 0, 524291, 1, 0, 524290, 1, 0, 524289, 1, 0, 524288, 1, 0, 589838, 1, 0, 589837, 1, 0, 589836, 1, 0, 589835, 1, 0, 589834, 1, 0, 589833, 1, 0, 589832, 1, 0, 589831, 1, 0, 589830, 1, 0, 589829, 1, 0, 589828, 1, 0, 589827, 1, 0, 589826, 1, 0, 589825, 1, 0, 589824, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 458761, 1, 0, 393225, 1, 0, 327689, 1, 0, 262153, 1, 0, 196617, 1, 0)
