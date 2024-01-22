@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ntvnsgokaly"
-path="res://.godot/imported/SecondFBG.png-848bc6faaddea572317b845abf60e257.ctex"
+uid="uid://bkxuve8hbkbk0"
+path="res://.godot/imported/scene_1__background_1.png-5f5fd76b870ceccc57c452585ac4a1fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Leveldesign/IntroOutro/SecondFBG.png"
-dest_files=["res://.godot/imported/SecondFBG.png-848bc6faaddea572317b845abf60e257.ctex"]
+source_file="res://Environments/scene_1__background_1.png"
+dest_files=["res://.godot/imported/scene_1__background_1.png-5f5fd76b870ceccc57c452585ac4a1fd.ctex"]
 
 [params]
 

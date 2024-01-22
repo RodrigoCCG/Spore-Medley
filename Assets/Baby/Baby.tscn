@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Baby/Scripts/BabyControl.gd" id="1_boxct"]
 [ext_resource type="Texture2D" uid="uid://qg37edwkkd77" path="res://Assets/Baby/Sprite_sheet_baby_sketches_1_standing_walking_jumping_falling_fixed.png" id="2_3jmi5"]
 [ext_resource type="Script" path="res://Assets/Camera/CameraScript.gd" id="3_04pkc"]
-[ext_resource type="PackedScene" path="res://Assets/Baby/hook.tscn" id="4_f8wxv"]
+[ext_resource type="PackedScene" uid="uid://ddiprpecqaag6" path="res://Assets/Baby/hook.tscn" id="4_f8wxv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wlxl"]
 atlas = ExtResource("2_3jmi5")
@@ -133,19 +133,21 @@ animations = [{
 size = Vector2(20, 39.2728)
 
 [node name="Baby" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_boxct")
 
 [node name="Hook" parent="." instance=ExtResource("4_f8wxv")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jw5jf")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.08746)
-scale = Vector2(5.865, 7.185)
+position = Vector2(0, 3.544)
+scale = Vector2(2.933, 3.593)
 shape = SubResource("RectangleShape2D_6la7c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.45, 0.45)
+zoom = Vector2(0.7, 0.7)
 script = ExtResource("3_04pkc")

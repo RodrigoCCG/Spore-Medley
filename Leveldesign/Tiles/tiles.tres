@@ -1,10 +1,23 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://cltc6jlv8lclb"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cltc6jlv8lclb"]
 
+[ext_resource type="Texture2D" uid="uid://ct68bico64j6f" path="res://Leveldesign/Tiles/Ground tiles BETTER more cartoony.png" id="1_ldpoe"]
 [ext_resource type="Texture2D" uid="uid://bgh7ujet2q64r" path="res://Leveldesign/Tiles/Ground tile.png" id="1_mn8li"]
 [ext_resource type="Texture2D" uid="uid://2e2v13f6484t" path="res://Leveldesign/Tiles/Platf_ Mushrooms_ size 1.png" id="2_wxh3e"]
 [ext_resource type="Texture2D" uid="uid://djqsujivl4dxn" path="res://Leveldesign/Tiles/Treebranch tiles_ without right side.png" id="3_jbuut"]
 
 [sub_resource type="GDScript" id="GDScript_jtu0r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8k55"]
+texture = ExtResource("1_ldpoe")
+texture_region_size = Vector2i(150, 150)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, 45, 75, 45, 75, 75, -75, 75)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qx8wd"]
 texture = ExtResource("1_mn8li")
@@ -87,8 +100,9 @@ texture_region_size = Vector2i(150, 150)
 
 [resource]
 tile_size = Vector2i(150, 150)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/1 = SubResource("TileSetAtlasSource_qx8wd")
 sources/2 = SubResource("TileSetAtlasSource_b3vot")
 sources/3 = SubResource("TileSetAtlasSource_2s5gx")
+sources/0 = SubResource("TileSetAtlasSource_v8k55")
 script = SubResource("GDScript_jtu0r")

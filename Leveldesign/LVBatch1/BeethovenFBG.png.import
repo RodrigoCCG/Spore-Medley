@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wkd05qp67nxb"
-path="res://.godot/imported/scene any any_ background 2.png-421f78a57acf79d33ab683b2a0a99bf3.ctex"
+uid="uid://ce2ffmdeno7ym"
+path="res://.godot/imported/BeethovenFBG.png-99626753924a04d1b981d8c91738ee13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Leveldesign/Challenges/C1/scene any any_ background 2.png"
-dest_files=["res://.godot/imported/scene any any_ background 2.png-421f78a57acf79d33ab683b2a0a99bf3.ctex"]
+source_file="res://Leveldesign/LVBatch1/BeethovenFBG.png"
+dest_files=["res://.godot/imported/BeethovenFBG.png-99626753924a04d1b981d8c91738ee13.ctex"]
 
 [params]
 

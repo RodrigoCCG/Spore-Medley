@@ -1,8 +1,8 @@
 extends Node
-const CAM_OFFSET_MAX = 150
-const CAM_OFFSET_SPEED = 10
-const DEFAULT_OFFSET = -300
-const HOZ_OFFSET = 30
+const CAM_OFFSET_MAX = 150 * 0.75
+const CAM_OFFSET_SPEED = 10 * 0.75
+const DEFAULT_OFFSET = -300 * 0.75
+const HOZ_OFFSET = 30 * 0.75
 var DIRECTION = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +12,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	var direction_vertical = Input.get_axis("ui_up","ui_down")
 	if direction_vertical:
 		if abs(self.offset.y - DEFAULT_OFFSET) < CAM_OFFSET_MAX: 
