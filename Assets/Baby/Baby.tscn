@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Baby/Scripts/BabyControl.gd" id="1_boxct"]
 [ext_resource type="Texture2D" uid="uid://qg37edwkkd77" path="res://Assets/Baby/Sprite_sheet_baby_sketches_1_standing_walking_jumping_falling_fixed.png" id="2_3jmi5"]
 [ext_resource type="Script" path="res://Assets/Camera/CameraScript.gd" id="3_04pkc"]
-[ext_resource type="PackedScene" uid="uid://ddiprpecqaag6" path="res://Assets/Baby/hook.tscn" id="4_f8wxv"]
+[ext_resource type="PackedScene" path="res://Assets/Baby/hook.tscn" id="4_f8wxv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wlxl"]
 atlas = ExtResource("2_3jmi5")

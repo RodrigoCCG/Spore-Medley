@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyxut3ucu3c04"]
+[gd_scene load_steps=5 format=3 uid="uid://n7vui2f2iwub"]
 
 [ext_resource type="Texture2D" uid="uid://djatkiqqvm4ja" path="res://Placeholders/concept_art_enviro_and_size_comparison.jpg" id="1_cgcy0"]
 [ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Baby/Baby.tscn" id="2_4xbi0"]

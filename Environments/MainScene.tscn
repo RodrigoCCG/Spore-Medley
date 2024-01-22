@@ -1,11 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0xev1s6rcq4r"]
+[gd_scene load_steps=7 format=3 uid="uid://c0xev1s6rcq4r"]
 
-[ext_resource type="PackedScene" uid="uid://doyka7qfid77e" path="res://Leveldesign/Stages/Stage_1.tscn" id="1_nnmrh"]
+[ext_resource type="Script" path="res://Environments/MainScene.gd" id="1_ntlwa"]
+[ext_resource type="Shader" path="res://Environments/Background.gdshader" id="1_oon4c"]
+[ext_resource type="Script" path="res://Environments/PLXBG.gd" id="2_3d7q2"]
+[ext_resource type="Texture2D" uid="uid://bkxuve8hbkbk0" path="res://Leveldesign/IntroOutro/scene_1__background_1.png" id="2_b8lbh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s4pco"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ggnn6"]
+shader = ExtResource("1_oon4c")
 
 [node name="MainScene" type="Node2D"]
 material = SubResource("CanvasItemMaterial_s4pco")
 position = Vector2(0, -1)
+script = ExtResource("1_ntlwa")
 
-[node name="Stage1" parent="." instance=ExtResource("1_nnmrh")]
+[node name="PLXBG" type="ParallaxBackground" parent="."]
+script = ExtResource("2_3d7q2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="PLXBG"]
+
+[node name="BGL1" type="Sprite2D" parent="PLXBG/ParallaxLayer2"]
+position = Vector2(1144, 808)
+texture = ExtResource("2_b8lbh")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="PLXBG"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(2280, 0)
+
+[node name="BGL2" type="Sprite2D" parent="PLXBG/ParallaxLayer"]
+material = SubResource("ShaderMaterial_ggnn6")
+position = Vector2(1144, 824)
+scale = Vector2(1.00175, 1.0037)
+texture = ExtResource("2_b8lbh")
+flip_h = true
