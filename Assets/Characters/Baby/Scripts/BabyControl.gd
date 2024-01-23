@@ -7,7 +7,8 @@ var HORIZONTAL_SPEED_CAP = 650.0
 var ACCELERATION = 1.5
 var DECCELETATION = 0.9
 var AIR_DECCELETATION = .3
-var JUMP_SPEED = -900.0
+var JUMP_SPEED = -1000.0
+var WAS_Falling
 #Gravity Variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity_mod = 1.5
@@ -26,6 +27,8 @@ var HAS_FLUTE = true
 var HAS_TUBA = true
 var HAS_CYMBAL = true
 var HAS_GUITAR = true
+#Platform Flipping
+signal flip_platforms
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,6 +51,8 @@ func _physics_process(delta):
 	#Jump Controls
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y += JUMP_SPEED
+	if Input.is_action_pressed("flute") and is_on_floor():
+		emit_signal("flip_platforms")
 	#Stop player from Wall Jumping/Dashing simultaneously
 	if !DASHING:
 		#Wall Jump
@@ -86,7 +91,7 @@ func hooked_movement(delta):
 	velocity += radius.normalized() * -rad_vel
 	#Stop player from pulling away from rope
 	if global_position.distance_to(hook_pos) > rope_len : 
-		global_position = hook_pos + radius.normalized() * rope_len
+		global_position = hook_pos + radius.normalized() * (rope_len*1.1)
 	#Swing player
 	velocity += (hook_pos - global_position).normalized() * 15000 * delta
 	pass
@@ -162,3 +167,6 @@ func handle_animation():
 		animationbeta.play("Rise")
 	elif velocity.x == 0 and velocity.y == 0:
 		animationbeta.play("Idle")
+	elif velocity.x == 0 and velocity.y == 0:
+		animationbeta.play("Idle")
+

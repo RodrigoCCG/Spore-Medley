@@ -3,19 +3,34 @@ extends Node2D
 @onready var room_2 = $Room2
 @onready var room_3 = $Room3
 @onready var baby = $Baby
-@onready var r_1_entry = $Room1/R1Entry
+var level_entry
+var level_exit
+var current_room: Node2D
 
 func _ready():
 	remove_child(room_2)
 	remove_child(room_3)
-	baby.position = r_1_entry.position
-
+	current_room = room_1
+	level_entry = current_room.get_node("Entry")
+	level_exit = current_room.get_node("Exit")
+	baby.position = level_entry.global_position
+	baby.HAS_FLUTE = false
+	baby.HAS_TUBA = false
+	baby.HAS_CYMBAL = false
+	baby.HAS_GUITAR = false
 
 func _physics_process(_delta):
-	load_room()
+	if level_exit.get_overlapping_bodies().find(baby) != -1:
+		load_room()
 	
 
 func load_room():
+	add_child(room_2)
+	remove_child(current_room)
+	current_room = room_2
+	level_entry = current_room.get_node("Entry")
+	level_exit = current_room.get_node("Exit")
+	baby.position = level_entry.global_position
 	pass
 
 

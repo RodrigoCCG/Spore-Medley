@@ -8,21 +8,30 @@ var flip_next = true
 func _ready():
 	flip_cells = get_used_cells(1)
 	for cell in flip_cells:
-		set_cell(1,cell,1,Vector2i(1,0))
+		set_cell(1,cell,1,Vector2i(2,1))
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if flip_next: flip_tiles()
 	pass
 
 func flip_tiles():
 	flip_next = false
-	await get_tree().create_timer(flip_timer).timeout
 	for cell in flip_cells:
-		set_cell(1,cell,1,Vector2i(1,0))
-	await get_tree().create_timer(flip_timer).timeout
+		set_cell(1,cell,1,Vector2i(2,2))
+	await get_tree().create_timer(flip_timer/3).timeout
 	for cell in flip_cells:
-		set_cell(1,cell,1,Vector2i(1,1))
+		set_cell(1,cell,1,Vector2i(1,2))
+	await get_tree().create_timer(flip_timer/3).timeout
+	for cell in flip_cells:
+		set_cell(1,cell,1,Vector2i(0,2))
+	await get_tree().create_timer(flip_timer/3).timeout
+	for cell in flip_cells:
+		set_cell(1,cell,1,Vector2i(0,2),1)
 	flip_next = true
+
+
+func _on_baby_flip_platforms():
+	if flip_next: flip_tiles()
+	pass # Replace with function body.
