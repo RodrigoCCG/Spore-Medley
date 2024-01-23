@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var animationbeta = $AnimatedSprite2D
-
+@onready var sfx_bus = $SFX_Player
+@onready var bgm_bus = $BGM_Player
 #Movement Variables
 var LAST_DIRECTION = 1
 var HORIZONTAL_SPEED_CAP = 650.0
@@ -21,18 +22,20 @@ const DASH_DECCELERATION = 0.3
 var DASHING = false
 var WALL_JUMP = false
 #Hook Variables
-var HOOK
+@onready var HOOK = $Hook
 #Inventory
 var HAS_FLUTE = true
 var HAS_TUBA = true
 var HAS_CYMBAL = true
 var HAS_GUITAR = true
+var FLUTE_COOLDOWN = false
 #Platform Flipping
 signal flip_platforms
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HOOK = $Hook
 	pass # Replace with function body.
 
 
@@ -51,8 +54,8 @@ func _physics_process(delta):
 	#Jump Controls
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y += JUMP_SPEED
-	if Input.is_action_pressed("flute") and is_on_floor():
-		emit_signal("flip_platforms")
+	if Input.is_action_just_pressed("flute") and is_on_floor():
+		play_flute()
 	#Stop player from Wall Jumping/Dashing simultaneously
 	if !DASHING:
 		#Wall Jump
@@ -68,6 +71,7 @@ func _physics_process(delta):
 	#Hookshot
 	if HAS_GUITAR and HOOK != null:
 		if Input.is_action_just_pressed("shoot"):
+			sfx_bus.play_hook()
 			HOOK.shoot(LAST_DIRECTION)
 		if Input.is_action_just_released("shoot"):
 			HOOK.release()
@@ -77,6 +81,11 @@ func _physics_process(delta):
 	move_and_slide()
 	#Animation
 	handle_animation()
+
+func play_flute():
+	sfx_bus.play_flute()
+	emit_signal("flip_platforms")
+	pass
 
 func hooked_movement(delta):
 	#Get Hook Position and Rope Length
@@ -116,6 +125,7 @@ func player_movement(direction,delta):
 
 func player_dash(direction):
 	#Set Speed and Gravity to Dashing Motion
+	sfx_bus.play_dash()
 	DASH_READY = false 
 	DASHING = true
 	velocity.x = DASH_SPEED * direction

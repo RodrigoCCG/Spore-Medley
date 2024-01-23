@@ -1,9 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://ic47q518di3d"]
+[gd_scene load_steps=24 format=3 uid="uid://ic47q518di3d"]
 
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BabyControl.gd" id="1_k1lki"]
 [ext_resource type="Texture2D" uid="uid://qg37edwkkd77" path="res://Assets/Characters/Baby/Sprite_sheet_baby_sketches_1_standing_walking_jumping_falling_fixed.png" id="2_pig4i"]
 [ext_resource type="Script" path="res://Assets/Camera/CameraScript.gd" id="3_wxbm6"]
 [ext_resource type="PackedScene" uid="uid://ddiprpecqaag6" path="res://Assets/Characters/Baby/hook.tscn" id="4_q2e48"]
+[ext_resource type="AudioStream" uid="uid://clybqogou4bqj" path="res://Assets/Sound/SFX/Gameplay/Dash/Dash_2.wav" id="5_j7n2e"]
+[ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/SFX_Player.gd" id="6_a1uvb"]
+[ext_resource type="AudioStream" uid="uid://e60jvx5hgpnj" path="res://Assets/Sound/BGM/Level_Guitar/MUSIC_LVLGUITAR_LOOPED.ogg" id="7_sipqq"]
+[ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BGM_Player.gd" id="7_vbq68"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wlxl"]
 atlas = ExtResource("2_pig4i")
@@ -149,3 +153,12 @@ zoom = Vector2(0.45, 0.45)
 script = ExtResource("3_wxbm6")
 
 [node name="Hook" parent="." instance=ExtResource("4_q2e48")]
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j7n2e")
+script = ExtResource("6_a1uvb")
+
+[node name="BGM_Player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sipqq")
+autoplay = true
+script = ExtResource("7_vbq68")

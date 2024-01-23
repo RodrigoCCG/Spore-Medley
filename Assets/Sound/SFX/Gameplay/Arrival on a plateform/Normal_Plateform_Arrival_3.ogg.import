@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbwmt6f05lraj"
+path="res://.godot/imported/Normal_Plateform_Arrival_3.ogg-c10ca0c86ec330c06181f7801f412487.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Gameplay/Arrival on a plateform/Normal_Plateform_Arrival_3.ogg"
+dest_files=["res://.godot/imported/Normal_Plateform_Arrival_3.ogg-c10ca0c86ec330c06181f7801f412487.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
