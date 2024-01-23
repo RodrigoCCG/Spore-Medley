@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rx5noov6k7uo"]
+[gd_scene load_steps=10 format=3 uid="uid://rx5noov6k7uo"]
 
 [ext_resource type="Script" path="res://Stages/LVBatch1/LVB1.gd" id="1_1slsq"]
 [ext_resource type="Script" path="res://Stages/LVBatch1/Rooms/Room1.gd" id="2_g4aq7"]
@@ -10,6 +10,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63nr7"]
 size = Vector2(284.5, 710.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17yxp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rytij"]
 size = Vector2(116, 252)
@@ -37,8 +39,11 @@ position = Vector2(1807, 204)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/Exit"]
 shape = SubResource("RectangleShape2D_63nr7")
 
-[node name="Entry" type="Node2D" parent="Room1"]
-position = Vector2(-1216, 576)
+[node name="Entry" type="Area2D" parent="Room1"]
+position = Vector2(-1199, 552)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/Entry"]
+shape = SubResource("RectangleShape2D_17yxp")
 
 [node name="Room2" type="Node2D" parent="."]
 
@@ -47,14 +52,17 @@ tile_set = ExtResource("4_0wafg")
 format = 2
 layer_0/tile_data = PackedInt32Array(196606, 0, 1, 196607, 0, 1, 131072, 0, 1, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1, 196605, 0, 1, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0)
 
-[node name="Entry" type="Node2D" parent="Room2"]
-position = Vector2(-338, 81)
-
 [node name="Exit" type="Area2D" parent="Room2"]
 position = Vector2(517, 134)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/Exit"]
 shape = SubResource("RectangleShape2D_rytij")
+
+[node name="Entry" type="Area2D" parent="Room2"]
+position = Vector2(-399, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/Entry"]
+shape = SubResource("RectangleShape2D_17yxp")
 
 [node name="Room3" type="Node2D" parent="."]
 

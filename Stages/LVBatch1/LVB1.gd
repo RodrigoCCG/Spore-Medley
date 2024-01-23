@@ -1,19 +1,19 @@
 extends Node2D
-@onready var room_1 = $Room1
-@onready var room_2 = $Room2
-@onready var room_3 = $Room3
+var room_array = []
 @onready var baby = $Baby
 var level_entry
 var level_exit
 var current_room: Node2D
 
 func _ready():
-	remove_child(room_2)
-	remove_child(room_3)
-	current_room = room_1
+	for i in range(1,len(get_children())):
+		room_array.append(get_children()[i])
+	for i in range(1,len(room_array)):
+		remove_child(room_array[i])
+	current_room = room_array[0]
 	level_entry = current_room.get_node("Entry")
 	level_exit = current_room.get_node("Exit")
-	baby.position = level_entry.global_position
+	baby.position = level_entry.global_position+Vector2(100,0)
 	baby.HAS_FLUTE = false
 	baby.HAS_TUBA = false
 	baby.HAS_CYMBAL = false
@@ -21,19 +21,22 @@ func _ready():
 
 func _physics_process(_delta):
 	if level_exit.get_overlapping_bodies().find(baby) != -1:
-		load_room()
+		load_room(+1)
+	if level_entry.get_overlapping_bodies().find(baby) != -1:
+		load_room(-1)
 	
 
-func load_room():
-	add_child(room_2)
+func load_room(which):
+	if room_array.find(current_room)+which < 0:
+		baby.position = level_entry.global_position+Vector2(100,0)
+		return
+	var next_room = room_array[room_array.find(current_room)+which]
+	add_child(next_room)
 	remove_child(current_room)
-	current_room = room_2
+	current_room = next_room
 	level_entry = current_room.get_node("Entry")
 	level_exit = current_room.get_node("Exit")
-	baby.position = level_entry.global_position
+	baby.position = level_entry.global_position+Vector2(100,0)
 	pass
 
 
-
-func _on_r_1_exit_area_entered(_area):
-	queue_free()
