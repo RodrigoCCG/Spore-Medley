@@ -1,25 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://bskvgeg1juxh6"]
 
-[ext_resource type="Script" path="res://Stages/LVBatch1/Rooms/lvb_1npc.gd" id="1_0jl2l"]
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/LVBatch1/Batch1Tiles.tres" id="2_hqbq3"]
-[ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Characters/Baby/Baby.tscn" id="3_iaf2c"]
+[ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_l2msl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubykc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4s2"]
 size = Vector2(194, 805)
 
 [node name="LVB1NPC" type="Node2D"]
-script = ExtResource("1_0jl2l")
+position = Vector2(913, 0)
 
 [node name="R3Tiles" type="TileMap" parent="."]
 tile_set = ExtResource("2_hqbq3")
 format = 2
 layer_0/tile_data = PackedInt32Array(393206, 0, 1, 393207, 0, 1, 393208, 0, 1, 393209, 0, 1, 393210, 0, 1, 393211, 0, 1, 393212, 0, 1, 393213, 0, 1, 393214, 0, 1, 393215, 0, 1, 327680, 0, 1, 327681, 0, 1, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 0, 1, 327688, 0, 1, 327689, 0, 1, 327690, 0, 1, 327691, 0, 1, 262155, 0, 1, 196619, 0, 1, 131083, 0, 1, 65547, 0, 1, 11, 0, 1, -65525, 0, 1, -131061, 0, 1)
-
-[node name="RNPCExitRight" type="Area2D" parent="."]
-position = Vector2(-1408, 296)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RNPCExitRight"]
-shape = SubResource("RectangleShape2D_kr4s2")
 
 [node name="Label" type="Label" parent="."]
 self_modulate = Color(1, 0.14902, 1, 1)
@@ -30,6 +25,20 @@ offset_bottom = 407.0
 scale = Vector2(2.84046, 7.22595)
 text = "NPC ROOM MEET THE FAMOUS BEETHOVEN AT THIS SPOT VERY SOON"
 
-[node name="Baby" parent="." instance=ExtResource("3_iaf2c")]
+[node name="Entry" type="Area2D" parent="."]
+position = Vector2(-1142, 21)
 
-[connection signal="body_entered" from="RNPCExitRight" to="." method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
+shape = SubResource("RectangleShape2D_ubykc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Entry"]
+texture = ExtResource("3_l2msl")
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(-1408, 296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("RectangleShape2D_kr4s2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+texture = ExtResource("3_l2msl")

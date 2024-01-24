@@ -1,43 +1,76 @@
 extends Node2D
-
-var R1loader = preload("res://Stages/LVBatch1/Rooms/lvb_1r_1.tscn")
-var R2loader = preload("res://Stages/LVBatch1/Rooms/lvb_1r_2.tscn")
-var RNPCloader = preload("res://Stages/LVBatch1/Rooms/lvb_1npc.tscn")
+@onready var room_array = [
+	preload("res://Stages/LVBatch1/Rooms/lvb_1npc.tscn"),
+	preload("res://Stages/LVBatch1/Rooms/lvb_1r_1.tscn"),
+	preload("res://Stages/LVBatch1/Rooms/lvb_1r_2.tscn")
+]
+@onready var baby = $Baby
+var level_entry :Area2D
+var level_exit :Area2D
+var current_room: Node2D
+var can_enter = true
 
 func _ready():
-	var R1instance = R1loader.instantiate()
-	add_child(R1instance)
-	R1instance.LVB1_R1_Exit_Right.connect(room_1_exit_right)
+	for room in room_array:
+		room_array[room_array.find(room)] = room.instantiate()
+		
+	for room in room_array:
+		print(room.name)
+	current_room = room_array[0]
+	add_child(current_room)
+	level_entry = current_room.get_node("Entry")
+	level_exit = current_room.get_node("Exit")
+	baby.position = level_entry.global_position+Vector2(100,0)
+	baby.HAS_FLUTE = false
+	baby.HAS_TUBA = false
+	baby.HAS_CYMBAL = false
+	baby.HAS_GUITAR = false
 
+func _physics_process(delta):
+	var is_touching_exit = level_exit.get_overlapping_bodies().find(baby) != -1
+	var is_touching_entry = level_entry.get_overlapping_bodies().find(baby) != -1
+	if is_touching_exit:
+		if can_enter:
+			print("Touching Exit")
+			load_room(+1)
+			await get_tree().create_timer(1.0/60.0).timeout
+	elif is_touching_entry:
+		if can_enter:
+			print("Touching Entrance")
+			load_room(-1)
+			await get_tree().create_timer(1.0/60.0).timeout
+	
 
-func deferred_r1():
-	var R1instance = R1loader.instantiate()
-	R1instance.LVB1_R1_Exit_Right.connect(room_1_exit_right)
-	add_child(R1instance)
+func load_room(which):
+	if !can_enter : return
+	can_enter = false
+	if room_array.find(current_room)+which < 0:
+		baby.position = level_entry.global_position
+		while level_entry.get_overlapping_bodies().find(baby) != -1: 
+			print("me")
+			await get_tree().create_timer(1.0/60.0).timeout
+		can_enter = true
+		return
+	var next_room = room_array[room_array.find(current_room)+which]
+	remove_child(current_room)
+	print("Current Room"+current_room.name)
+	add_child(next_room)
+	print("Next Room"+next_room.name)
+	
+	level_entry = next_room.get_node("Entry")
+	level_exit = next_room.get_node("Exit")
+	current_room = next_room
+	await get_tree().create_timer(1.0).timeout
+	if which > 0:
+		baby.position = level_entry.global_position
+		print("Entry of "+level_entry.get_parent().name)
+		while level_entry.get_overlapping_bodies().find(baby) != -1: 
+			await get_tree().create_timer(1.0/60.0).timeout
+	elif which < 0:
+		print("Exit of of "+level_exit.get_parent().name)
+		baby.position = level_exit.global_position
+		while level_exit.get_overlapping_bodies().find(baby) != -1: 
+			await get_tree().create_timer(1.0/60.0).timeout
+	can_enter = true
+	pass
 
-func room_1_exit_right():
-	call_deferred("deferred_r2")
-
-func deferred_r2():
-	var R2instance = R2loader.instantiate()
-	R2instance.LVB1_R2_Exit_Left.connect(room_2_exit_left)
-	R2instance.LVB1_R2_Exit_Up.connect(room_2_exit_up)
-	R2instance.LVB1_R2_Exit_Right.connect(room_2_exit_right)
-	add_child(R2instance)
-
-func room_2_exit_right():
-	call_deferred("deferred_rnpc")
-
-func room_2_exit_left():
-	call_deferred("deferred_r1")
-
-func room_2_exit_up(): 
-	queue_free()
-
-func deferred_rnpc():
-	var RNPCinstance = RNPCloader.instantiate()
-	RNPCinstance.LVB1_RNPC_Exit_Left.connect(room_NPC_exit_left)
-	add_child(RNPCinstance)
-
-func room_NPC_exit_left():
-	call_deferred("deferred_r2")
