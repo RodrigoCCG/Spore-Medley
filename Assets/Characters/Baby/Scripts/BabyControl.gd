@@ -42,7 +42,7 @@ func _physics_process(delta):
 	elif velocity.x > 0:
 		LAST_DIRECTION = 1
 	#Movement Controls
-	var direction = Input.get_axis("ui_left","ui_right")
+	var direction = Input.get_axis("left","right")
 	player_movement(direction,delta)
 	#Jump Controls
 	if Input.is_action_pressed("jump") and is_on_floor():

@@ -12,14 +12,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var direction_vertical = Input.get_axis("ui_up","ui_down")
+	var direction_vertical = Input.get_axis("up","down")
 	if direction_vertical:
 		if abs(self.offset.y - DEFAULT_OFFSET) < CAM_OFFSET_MAX: 
 			self.offset.y += CAM_OFFSET_SPEED * direction_vertical
 	else:
 		if self.offset.y > DEFAULT_OFFSET+1 or self.offset.y < DEFAULT_OFFSET-1: 
 			self.offset.y += (DEFAULT_OFFSET-self.offset.y)*(0.08)
-	var direction_horizontal = Input.get_axis("ui_left","ui_right")
+	var direction_horizontal = Input.get_axis("left","right")
 	if direction_horizontal:
 		if direction_horizontal * self.offset.x < HOZ_OFFSET:
 			self.offset.x += direction_horizontal * abs(self.offset.x -(direction_horizontal * HOZ_OFFSET) )*(0.1)
