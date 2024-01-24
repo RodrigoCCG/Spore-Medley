@@ -14,7 +14,7 @@ func _process(delta):
 func _on_start_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act1.instantiate()
-	get_parent().add_child(level_instance)
+	get_tree().get_root().add_child(level_instance)
 	get_parent().remove_child(self)
 	pass # Replace with function body.
 

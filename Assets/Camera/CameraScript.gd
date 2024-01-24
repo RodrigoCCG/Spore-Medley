@@ -1,9 +1,12 @@
-extends Node
+extends Camera2D
 const CAM_OFFSET_MAX = 150 * 0.75
 const CAM_OFFSET_SPEED = 10 * 0.75
 const DEFAULT_OFFSET = -300 * 0.75
 const HOZ_OFFSET = 30 * 0.75
 var DIRECTION = 1
+var CAMERA_ZOOM = 0.55
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	var zoom_multi = get_window().size.y * CAMERA_ZOOM/1080.0
+	set_zoom(Vector2i(1,1)*zoom_multi)
 	var direction_vertical = Input.get_axis("up","down")
 	if direction_vertical:
 		if abs(self.offset.y - DEFAULT_OFFSET) < CAM_OFFSET_MAX: 
