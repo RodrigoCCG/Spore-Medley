@@ -27,7 +27,7 @@ scale = Vector2(0.505263, 0.4)
 texture = ExtResource("2_hyb84")
 
 [node name="BGL2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.1)
+motion_scale = Vector2(0.2, 0)
 motion_mirroring = Vector2(2280, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGL2"]
