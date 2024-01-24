@@ -2,13 +2,15 @@ extends CharacterBody2D
 @onready var animationbeta = $AnimatedSprite2D
 @onready var sfx_bus = $SFX_Player
 @onready var bgm_bus = $BGM_Player
+
 #Movement Variables
+@export var Spawn: int
 var LAST_DIRECTION = 1
 var HORIZONTAL_SPEED_CAP = 650.0
 var ACCELERATION = 1.5
 var DECCELETATION = 0.9
 var AIR_DECCELETATION = .3
-var JUMP_SPEED = -1000.0
+var JUMP_SPEED = -1300.0
 var WAS_Falling
 #Gravity Variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,25 +26,16 @@ var WALL_JUMP = false
 #Hook Variables
 @onready var HOOK = $Hook
 #Inventory
-var HAS_FLUTE = true
-var HAS_TUBA = true
-var HAS_CYMBAL = true
-var HAS_GUITAR = true
+@export var HAS_FLUTE: bool
+@export var HAS_TUBA: bool
+@export var HAS_CYMBAL: bool
+@export var HAS_GUITAR: bool
 var FLUTE_COOLDOWN = false
 #Platform Flipping
 signal flip_platforms
 
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-	
 func _physics_process(delta):
 	if velocity.x < 0:
 		LAST_DIRECTION = -1
@@ -141,7 +134,7 @@ func player_dash(direction):
 	while !is_on_floor():
 		await get_tree().create_timer(1.0/60.0).timeout
 	DASH_READY = true
-	
+
 func player_walljump():
 	#Move player up and away from wall
 	velocity.y = JUMP_SPEED

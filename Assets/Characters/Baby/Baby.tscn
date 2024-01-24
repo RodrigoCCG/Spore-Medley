@@ -162,10 +162,3 @@ script = ExtResource("6_a1uvb")
 stream = ExtResource("7_sipqq")
 autoplay = true
 script = ExtResource("7_vbq68")
-
-[node name="EntryExitDeadArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="EntryExitDeadArea"]
-position = Vector2(0, 7.08746)
-scale = Vector2(5.865, 7.185)
-shape = SubResource("RectangleShape2D_6la7c")
