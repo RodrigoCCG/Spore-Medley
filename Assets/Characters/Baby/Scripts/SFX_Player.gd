@@ -6,17 +6,17 @@ var hook_sounds = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(0,23):
+	for i in range(0,5):
 		flute_sounds.append("res://Assets/Sound/SFX/Gameplay/Playing Flute/Playing_Flute_"+str(i+1)+".ogg")
 
-	for i in range(0,17):
+	for i in range(0,5):
 		dash_sounds.append("res://Assets/Sound/SFX/Gameplay/Dash/Dash_"+str(i+1)+".wav")
 	
 	for i in range(0,1):
 		walljump_sounds.append("res://Assets/Sound/SFX/Gameplay/Arrival on a plateform/Normal_Plateform_Arrival_9.ogg")
 		#walljump_sounds.append("res://Assets/Sound/SFX/Gameplay/Dash/Dash_"+str(i+1)+".wav")
 	
-	for i in range(0,9):
+	for i in range(0,5):
 		hook_sounds.append("res://Assets/Sound/SFX/Gameplay/Grappling Hook/GRAPPLING_HOOK_"+str(i+1)+".ogg")
 	pass # Replace with function body.
 
