@@ -22,19 +22,24 @@ func _process(_delta):
 func flip_tiles():
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(0,2))
+	if get_tree() == null: return
 	await get_tree().create_timer(1.0/2.0).timeout
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(1,2))
+	if get_tree() == null: return
 	await get_tree().create_timer(1.0/5.0).timeout
 	flip_next = false
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(2,2))
+	if get_tree() == null: return
 	await get_tree().create_timer(flip_timer/3).timeout
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(1,2))
+	if get_tree() == null: return
 	await get_tree().create_timer(flip_timer/3).timeout
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(0,2))
+	if get_tree() == null: return
 	await get_tree().create_timer(flip_timer/3).timeout
 	for cell in flip_cells:
 		set_cell(1,cell,source_layer,Vector2i(3,0))

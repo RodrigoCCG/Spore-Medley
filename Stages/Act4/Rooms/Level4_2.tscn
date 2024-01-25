@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlgr04jgwq53i"]
+[gd_scene load_steps=5 format=3 uid="uid://dlgr04jgwq53i"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_obtgh"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_gcbkp"]
-[ext_resource type="PackedScene" uid="uid://c6i5bu8q17xis" path="res://Assets/Characters/Baby/Baby.tscn" id="3_k7pa1"]
 [ext_resource type="Script" path="res://Assets/Environment/Tile_sets/Alternating_Tiles.gd" id="3_rh3bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
@@ -11,7 +10,7 @@ size = Vector2(452.905, 440.25)
 [node name="Level4_2" type="Node2D"]
 
 [node name="Exit" type="Area2D" parent="."]
-position = Vector2(1532, 38)
+position = Vector2(1718, 38)
 
 [node name="Exitshape" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-5, -438.125)
@@ -33,12 +32,6 @@ Stage 4-2
 
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1586, 352)
-
-[node name="Baby" parent="." instance=ExtResource("3_k7pa1")]
-position = Vector2(-1604, 354)
-HAS_FLUTE = true
-HAS_TUBA = true
-HAS_CYMBAL = true
 
 [node name="Tilemap" type="TileMap" parent="."]
 light_mask = 3
