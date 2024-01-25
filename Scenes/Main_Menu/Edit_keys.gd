@@ -7,11 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
-func _on_input_control_item_clicked(index, at_position, mouse_button_index):
+
+func _on_input_control_item_clicked(index, _at_position, _mouse_button_index):
 	visible = true
 	var action = input_box.get_item_text(index).split(":")[0].to_lower()
 	var current_input : InputEvent = InputMap.action_get_events(action)[0]

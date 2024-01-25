@@ -16,32 +16,27 @@ var can_enter = true
 func _ready():
 	for room in room_array:
 		room_array[room_array.find(room)] = room.instantiate()
-		
-	for room in room_array:
-		print(room.name)
 	current_room = room_array[0]
 	add_child(current_room)
 	level_entry = current_room.get_node("Entry")
+	level_entry.body_entered.connect(entered_entry)
 	level_exit = current_room.get_node("Exit")
+	level_exit.body_entered.connect(entered_exit)
 	baby.position = level_entry.global_position+Vector2(100,0)
 	baby.HAS_FLUTE = false
 	baby.HAS_TUBA = false
 	baby.HAS_CYMBAL = false
 	baby.HAS_GUITAR = false
 
-func _physics_process(delta):
-	var is_touching_exit = level_exit.get_overlapping_bodies().find(baby) != -1
-	var is_touching_entry = level_entry.get_overlapping_bodies().find(baby) != -1
-	if is_touching_exit:
-		if can_enter:
-			print("Touching Exit")
-			call_deferred("load_room", +1)
 
-	elif is_touching_entry:
-		if can_enter:
-			print("Touching Entrance")
-			call_deferred("load_room", -1)
-	
+
+func entered_exit(_body):
+	print("Touching Exit")
+	call_deferred("load_room", +1)
+
+func entered_entry(_body):
+	print("Touching Entrance")
+	call_deferred("load_room", -1)
 
 func load_room(which):
 	if !can_enter : return
@@ -57,11 +52,13 @@ func load_room(which):
 	print("Next Room"+next_room.name)
 	
 	level_entry = next_room.get_node("Entry")
+	level_entry.body_entered.connect(entered_entry)
 	level_exit = next_room.get_node("Exit")
+	level_exit.body_entered.connect(entered_exit)
 	current_room = next_room
 	call_deferred("positioner")
 
-func positioner(which):
+func positioner(which, _body):
 	if which > 0:
 		baby.position = level_entry.global_position
 		print("Entry of "+level_entry.get_parent().name)
