@@ -152,6 +152,7 @@ func player_walljump():
 	#Return control to player
 	DASHING = false
 
+var animation_lock = false
 func handle_animation():
 	#Face Left and Right, remember last direction faced
 	if velocity.x < 0:
@@ -160,16 +161,43 @@ func handle_animation():
 		animationbeta.flip_h = false
 	else : animationbeta.flip_h = LAST_DIRECTION < 0
 	#Animation cycles
-	if velocity.x != 0 and is_on_floor():
-		animationbeta.play("Walk")
-	elif Input.is_action_just_pressed("ui_accept"):
-		animationbeta.play("Jump")
-	elif velocity.y > 0:
-		animationbeta.play("Fall")
-	elif velocity.y < 0:
-		animationbeta.play("Rise")
-	elif velocity.x == 0 and velocity.y == 0:
-		animationbeta.play("Idle")
-	elif velocity.x == 0 and velocity.y == 0:
-		animationbeta.play("Idle")
+	if !animation_lock:
+		if velocity.x != 0 and is_on_floor():
+			animationbeta.play("Walk")
+		elif Input.is_action_just_pressed("jump"):
+			animationbeta.play("Jump")
+		elif velocity.y > 0:
+			animationbeta.play("Fall")
+		elif velocity.y < 0:
+			animationbeta.play("Rise")
+		elif velocity.x == 0 and velocity.y == 0:
+			animationbeta.play("Idle")
+		elif velocity.x == 0 and velocity.y == 0:
+			animationbeta.play("Idle")
+	
+	
+	if Input.is_action_just_pressed("flute") and HAS_FLUTE:
+		animationbeta.play("Flute")
+		animation_lock = true
+	if Input.is_action_pressed("shoot") and HAS_GUITAR:
+		if HOOK.hooked:
+			animationbeta.play("Swing")
+		else:
+			animationbeta.play("Guitar")
+		animation_lock = true
+	if Input.is_action_just_released("shoot"):
+		animation_lock = false
+	if Input.is_action_just_pressed("dash") and HAS_TUBA:
+		animationbeta.play("Dash")
+		animation_lock = true
+		while animation_lock: await get_tree().create_timer(1.0/60.0).timeout
+		animation_lock = true
+		animationbeta.play("Dashing")
+		await get_tree().create_timer(DASH_DURATION).timeout
+		animation_lock = false
 
+
+
+func _on_animated_sprite_2d_animation_finished():
+	animation_lock = false
+	pass # Replace with function body.
