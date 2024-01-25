@@ -1,11 +1,10 @@
 extends Node2D
 @onready var room_array = [
-
 	preload("res://Stages/Act1/Rooms/lvb_1r_1.tscn"),
 	preload("res://Stages/Act1/Rooms/lvb_1r_2.tscn"),
 	preload("res://Stages/Act1/Rooms/lvb_1npc.tscn"),
 ]
-
+var Background = preload("res://Assets/Environment/Backgrounds/BeethovenFBG.png")
 @onready var baby = $Baby
 var level_entry :Area2D
 var level_exit :Area2D
@@ -13,9 +12,9 @@ var current_room: Node2D
 var can_enter = true
 
 func _ready():
+	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
 	for room in room_array:
 		room_array[room_array.find(room)] = room.instantiate()
-		
 	for room in room_array:
 		print(room.name)
 	current_room = room_array[0]
@@ -27,7 +26,7 @@ func _ready():
 	baby.HAS_TUBA = false
 	baby.HAS_CYMBAL = false
 	baby.HAS_GUITAR = false
-	
+	BGSet.texture = Background
 	
 func _physics_process(_delta):
 	if can_enter:
@@ -41,6 +40,7 @@ func _physics_process(_delta):
 
 
 func load_room(which):
+	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
 	if !can_enter : return
 	can_enter = false
 	if room_array.find(current_room)+which < 0: 
@@ -53,10 +53,11 @@ func load_room(which):
 	level_entry  = next_room.get_node("Entry")
 	level_exit = next_room.get_node("Exit")
 	remove_child(current_room)
-	if which < 0: positioner(level_exit)
-	if which > 0: positioner(level_entry)
+	if which < 0: positioner(level_exit, BGSet)
+	if which > 0: positioner(level_entry, BGSet)
 	can_enter = true
 	current_room = next_room
 
-func positioner(where):
+func positioner(where, BGSet):
 	baby.global_position = where.global_position
+	BGSet.offset.x = BGSet.offset.x - 150

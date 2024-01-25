@@ -210,6 +210,7 @@ texture = SubResource("GradientTexture2D_2suou")
 
 [node name="InputControl" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -550.0
 offset_top = -95.0
 offset_right = -114.0

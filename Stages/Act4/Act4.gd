@@ -4,7 +4,7 @@ extends Node2D
 	preload("res://Stages/Act4/Rooms/Level4_2.tscn"),
 	preload("res://Stages/Act4/Rooms/Level4_3.tscn")
 ]
-
+var Background = preload("res://Assets/Environment/Backgrounds/D INSIDE 2 v 1.png")
 const next_act = "res://Stages/Act5/Act5.tscn"
 
 @onready var baby = $Baby
@@ -14,6 +14,7 @@ var current_room: Node2D
 var can_enter = true
 var current_level: = 0
 func _ready(): 
+	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
 	current_room = room_array[0].instantiate()
 	add_child(current_room)
 	level_entry = current_room.get_node("Entry")
@@ -23,7 +24,7 @@ func _ready():
 	baby.HAS_TUBA = true
 	baby.HAS_CYMBAL = true
 	baby.HAS_GUITAR = false
-	
+	BGSet.texture = Background
 	
 func _physics_process(_delta):
 	if can_enter:
@@ -40,7 +41,8 @@ func _physics_process(_delta):
 		#	load_room(-1)
 
 
-func load_room(which):
+func load_room(_which):
+	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
 	if current_level >= len(room_array):
 		get_tree().get_root().add_child(preload(next_act).instantiate())
 		queue_free()
@@ -56,6 +58,7 @@ func load_room(which):
 	current_room = next_room
 	level_exit = next_room.get_node("Exit")
 	add_child(next_room)
+	BGSet.offset.x = BGSet.offset.x - 150
+	BGSet.offset.y = BGSet.offset.y - 25
 	await get_tree().create_timer(1).timeout
 	can_enter = true
-
