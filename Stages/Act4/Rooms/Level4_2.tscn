@@ -40,7 +40,6 @@ Stage 4-2
 position = Vector2(-1586, 352)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
-position = Vector2(224, -57)
 shape = SubResource("RectangleShape2D_0d4hi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Entry"]

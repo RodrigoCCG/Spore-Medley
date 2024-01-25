@@ -16,9 +16,12 @@ func _on_input_control_item_clicked(index, _at_position, _mouse_button_index):
 	var current_input : InputEvent = InputMap.action_get_events(action)[0]
 	text = "Press ESC to cancel.\nPress a Key to Reassign: " + action.to_upper()
 	while Input.is_anything_pressed(): await get_tree().create_timer(1.0/60.0).timeout
-	while !Input.is_anything_pressed(): 
-		await get_tree().create_timer(1.0/60.0).timeout
+	
 	var e = last_input
+	while !Input.is_anything_pressed() or !"keycode" in e: 
+		await get_tree().create_timer(1.0/60.0).timeout
+		e = last_input
+	
 	if e.keycode == KEY_ESCAPE: 
 		visible = false
 		return
