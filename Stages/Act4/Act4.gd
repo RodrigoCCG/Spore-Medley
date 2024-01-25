@@ -1,21 +1,20 @@
 extends Node2D
 @onready var room_array = [
-	preload("res://Stages/Act4/Rooms/sampleroom.tscn")
+	preload("res://Stages/Act4/Rooms/Level4_1.tscn"),
+	preload("res://Stages/Act4/Rooms/Level4_2.tscn"),
+	preload("res://Stages/Act4/Rooms/Level4_3.tscn")
 ]
+
+const next_act = "res://Stages/Act5/Act5.tscn"
 
 @onready var baby = $Baby
 var level_entry :Area2D
 var level_exit :Area2D
 var current_room: Node2D
 var can_enter = true
-
-func _ready():
-	for room in room_array:
-		room_array[room_array.find(room)] = room.instantiate()
-		
-	for room in room_array:
-		print(room.name)
-	current_room = room_array[0]
+var current_level: = 0
+func _ready(): 
+	current_room = room_array[0].instantiate()
 	add_child(current_room)
 	level_entry = current_room.get_node("Entry")
 	level_exit = current_room.get_node("Exit")
@@ -29,31 +28,34 @@ func _ready():
 func _physics_process(_delta):
 	if can_enter:
 		if level_exit.overlaps_body(baby):
-			print("Touching Exit")
-			load_room(+1)
-
+			can_enter = false
+			baby.global_position = Vector2(-1000000000000,-100000000000000)
+			current_level+=1
+			print("Touching Exit of "+str(level_exit.get_parent().name))
+			call_deferred("load_room",+1)
+			baby.global_position = level_entry.global_position
+	print(can_enter)
 		#elif level_entry.overlaps_body(baby):
 		#	print("Touching Entrance")
 		#	load_room(-1)
 
 
 func load_room(which):
-	if !can_enter : return
-	can_enter = false
-	if room_array.find(current_room)+which < 0: 
-		can_enter = true
+	if current_level >= len(room_array):
+		get_tree().get_root().add_child(preload(next_act).instantiate())
+		queue_free()
 		return
-	var next_room = room_array[room_array.find(current_room)+which]
+		
+	var next_room = room_array[current_level].instantiate()
+	
 	print("Current Room"+current_room.name)
-	add_child(next_room)
 	print("Next Room"+next_room.name)
-	level_entry  = next_room.get_node("Entry")
-	level_exit = next_room.get_node("Exit")
+	
+	level_entry = next_room.get_node("Entry")
 	remove_child(current_room)
-	if which < 0: positioner(level_exit)
-	if which > 0: positioner(level_entry)
-	can_enter = true
 	current_room = next_room
+	level_exit = next_room.get_node("Exit")
+	add_child(next_room)
+	while !baby.is_on_floor():await get_tree().create_timer(1.0/60.0).timeout
+	can_enter = true
 
-func positioner(where):
-	baby.global_position = where.global_position
