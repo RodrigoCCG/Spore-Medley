@@ -2,7 +2,6 @@ extends CharacterBody2D
 @onready var animationbeta = $AnimatedSprite2D
 @onready var sfx_bus = $SFX_Player
 @onready var bgm_bus = $BGM_Player
-
 #Movement Variables
 @export var Spawn: int
 var LAST_DIRECTION = 1
@@ -10,7 +9,7 @@ var HORIZONTAL_SPEED_CAP = 650.0
 var ACCELERATION = 1.5
 var DECCELETATION = 0.9
 var AIR_DECCELETATION = .3
-var JUMP_SPEED = -1100.0
+var JUMP_SPEED = -1000.0
 var WAS_Falling
 #Gravity Variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
