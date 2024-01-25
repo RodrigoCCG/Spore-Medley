@@ -192,6 +192,7 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -387.0
 offset_top = -288.0
 offset_right = 388.336
