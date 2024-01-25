@@ -56,6 +56,6 @@ func load_room(which):
 	current_room = next_room
 	level_exit = next_room.get_node("Exit")
 	add_child(next_room)
-	while !baby.is_on_floor():await get_tree().create_timer(1.0/60.0).timeout
+	await get_tree().create_timer(1).timeout
 	can_enter = true
 
