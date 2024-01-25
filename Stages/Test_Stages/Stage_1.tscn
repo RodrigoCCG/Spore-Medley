@@ -148,5 +148,9 @@ script = ExtResource("3_c8dku")
 
 [node name="Baby" parent="." groups=["player_platforms"] instance=ExtResource("2_awkkc")]
 position = Vector2(-8, -322)
+HAS_FLUTE = true
+HAS_TUBA = true
+HAS_CYMBAL = true
+HAS_GUITAR = true
 
 [connection signal="flip_platforms" from="Baby" to="TileMap" method="_on_baby_flip_platforms"]

@@ -10,7 +10,7 @@ var HORIZONTAL_SPEED_CAP = 650.0
 var ACCELERATION = 1.5
 var DECCELETATION = 0.9
 var AIR_DECCELETATION = .3
-var JUMP_SPEED = -1300.0
+var JUMP_SPEED = -1100.0
 var WAS_Falling
 #Gravity Variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
