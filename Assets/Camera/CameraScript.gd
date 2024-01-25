@@ -5,7 +5,7 @@ const DEFAULT_OFFSET = -300 * 0.75
 const HOZ_OFFSET = 30 * 0.75
 var DIRECTION = 1
 var CAMERA_ZOOM = 0.55
-
+@onready var baby = $".."
 
 
 # Called when the node enters the scene tree for the first time.
