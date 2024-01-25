@@ -139,18 +139,24 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_72aaa")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wtl6v")
 }, {
-"duration": 0.5,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0jls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0jls")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t0jls")
 }],
 "loop": false,
 "name": &"Flute",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -244,7 +250,7 @@ script = ExtResource("1_k1lki")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jw5jf")
-animation = &"Idle"
+animation = &"Flute"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17.175, 34)
