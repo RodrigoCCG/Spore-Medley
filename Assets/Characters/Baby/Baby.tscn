@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c6i5bu8q17xis"]
+[gd_scene load_steps=40 format=3 uid="uid://c6i5bu8q17xis"]
 
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BabyControl.gd" id="1_k1lki"]
 [ext_resource type="Texture2D" uid="uid://qg37edwkkd77" path="res://Assets/Characters/Baby/Sprite_sheet_baby_sketches_1_standing_walking_jumping_falling_fixed.png" id="2_pig4i"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/SFX_Player.gd" id="6_a1uvb"]
 [ext_resource type="AudioStream" uid="uid://e60jvx5hgpnj" path="res://Assets/Sound/BGM/Level_Guitar/MUSIC_LVLGUITAR_LOOPED.ogg" id="7_sipqq"]
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BGM_Player.gd" id="7_vbq68"]
+[ext_resource type="Texture2D" uid="uid://bbpvwwtiumw57" path="res://Assets/Environment/Props/PropPNG/Flute Mushroom visual key.png" id="10_tl7vd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxmr0"]
 atlas = ExtResource("2_rvuep")
@@ -239,6 +240,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6la7c"]
 size = Vector2(20, 39.2728)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_guyj3"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_i2pcg"]
+offsets = PackedFloat32Array(0, 0.772727)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_07n1s"]
+gradient = SubResource("Gradient_i2pcg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="Baby" type="CharacterBody2D"]
 script = ExtResource("1_k1lki")
 
@@ -267,5 +285,26 @@ script = ExtResource("6_a1uvb")
 stream = ExtResource("7_sipqq")
 autoplay = true
 script = ExtResource("7_vbq68")
+
+[node name="Deadbaby" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(225, -21)
+scale = Vector2(4, 4)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_guyj3")
+texture = ExtResource("10_tl7vd")
+lifetime = 2.0
+explosiveness = 1.0
+randomness = 0.07
+trail_enabled = true
+trail_lifetime = 1.64
+trail_sections = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.14441e-05, 3.05176e-05)
+scale = Vector2(12, 14)
+color = Color(0.305882, 0.388235, 1, 1)
+energy = 30.0
+texture = SubResource("GradientTexture2D_07n1s")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
