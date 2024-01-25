@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b860v5yb31wwr"]
+[gd_scene load_steps=4 format=3 uid="uid://b860v5yb31wwr"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_1cvyf"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_4hotv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
 size = Vector2(452.905, 1316.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d4hi"]
 
 [node name="SampleRoom" type="Node2D"]
 
@@ -36,12 +34,5 @@ text = "Sample Room
 Stage 4
 "
 
-[node name="Entry" type="Area2D" parent="."]
+[node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1180, 357)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
-position = Vector2(224, -57)
-shape = SubResource("RectangleShape2D_0d4hi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Entry"]
-scale = Vector2(12, 6.59091)

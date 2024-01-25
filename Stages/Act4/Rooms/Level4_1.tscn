@@ -1,15 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsv221tn43vru"]
+[gd_scene load_steps=7 format=3 uid="uid://bsv221tn43vru"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_se256"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_7w607"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/purplishglowshroom.tscn" id="3_qj0k7"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="4_1b84k"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/whiteglowshroom.tscn" id="6_67n0i"]
+[ext_resource type="PackedScene" uid="uid://buno6k6dxdde0" path="res://Assets/Environment/Props/PropEdited/purplishglowshroom.tscn" id="3_qj0k7"]
+[ext_resource type="PackedScene" uid="uid://b1ggp6b3fc2ey" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="4_1b84k"]
+[ext_resource type="PackedScene" uid="uid://cj543jnpbfmo4" path="res://Assets/Environment/Props/PropEdited/whiteglowshroom.tscn" id="6_67n0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
 size = Vector2(580, 55.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d4hi"]
 
 [node name="Level4_1" type="Node2D"]
 
@@ -39,14 +37,8 @@ text = "Sample Room
 Stage 4-1
 "
 
-[node name="Entry" type="Area2D" parent="."]
+[node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1546, 417)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
-shape = SubResource("RectangleShape2D_0d4hi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Entry"]
-scale = Vector2(12, 6.59091)
 
 [node name="Decoration" type="Node2D" parent="."]
 

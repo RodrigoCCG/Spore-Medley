@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1lp01a1gaduu"]
+[gd_scene load_steps=7 format=3 uid="uid://d1lp01a1gaduu"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_ss8r6"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_isn4h"]
@@ -9,8 +9,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0p66h"]
 size = Vector2(319.125, 1281.63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2qwv"]
 
 [node name="LVB1R1" type="Node2D"]
 
@@ -45,14 +43,8 @@ text = "Room 1
 
 "
 
-[node name="Entry" type="Area2D" parent="."]
-position = Vector2(-1275, 262)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
-shape = SubResource("RectangleShape2D_e2qwv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Entry"]
-texture = ExtResource("2_isn4h")
+[node name="Entry" type="Node2D" parent="."]
+position = Vector2(-1176, 480)
 
 [node name="Fencecandle" parent="." instance=ExtResource("3_n7jkh")]
 position = Vector2(-279, 764)

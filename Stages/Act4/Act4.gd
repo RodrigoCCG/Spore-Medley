@@ -8,7 +8,7 @@ var Background = preload("res://Assets/Environment/Backgrounds/D INSIDE 2 v 1.pn
 const next_act = "res://Stages/Act5/Act5.tscn"
 
 @onready var baby = $Baby
-var level_entry :Area2D
+var level_entry :Node2D
 var level_exit :Area2D
 var current_room: Node2D
 var can_enter = true
@@ -19,7 +19,7 @@ func _ready():
 	add_child(current_room)
 	level_entry = current_room.get_node("Entry")
 	level_exit = current_room.get_node("Exit")
-	baby.position = level_entry.global_position+Vector2(100,0)
+	baby.position = level_entry.position
 	baby.HAS_FLUTE = true
 	baby.HAS_TUBA = true
 	baby.HAS_CYMBAL = true
@@ -36,10 +36,6 @@ func _physics_process(_delta):
 			call_deferred("load_room",+1)
 			baby.global_position = level_entry.global_position
 	print(can_enter)
-		#elif level_entry.overlaps_body(baby):
-		#	print("Touching Entrance")
-		#	load_room(-1)
-
 
 func load_room(_which):
 	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
