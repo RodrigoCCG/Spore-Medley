@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bskvgeg1juxh6"]
 
-[ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/LVBatch1/Batch1Tiles.tres" id="2_hqbq3"]
+[ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="2_hqbq3"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_l2msl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubykc"]

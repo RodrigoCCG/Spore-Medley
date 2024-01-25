@@ -150,7 +150,8 @@ shape = SubResource("RectangleShape2D_6la7c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.45, 0.45)
-limit_left = -1920
+limit_left = -2100
+limit_right = 2100
 script = ExtResource("3_wxbm6")
 
 [node name="Hook" parent="." instance=ExtResource("4_q2e48")]

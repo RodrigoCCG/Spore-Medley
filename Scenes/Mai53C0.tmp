@@ -1,23 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0xev1s6rcq4r"]
+[gd_scene load_steps=7 format=3 uid="uid://c0xev1s6rcq4r"]
 
-[ext_resource type="Script" path="res://Scenes/MainScene.gd" id="1_ntlwa"]
 [ext_resource type="Texture2D" uid="uid://bkxuve8hbkbk0" path="res://Assets/Environment/Backgrounds/scene_1__background_1.png" id="2_hyb84"]
-[ext_resource type="Shader" path="res://Scenes/BackgroundDarkener.gdshader" id="2_o1e1x"]
-[ext_resource type="Shader" path="res://Scenes/Background.gdshader" id="3_pwiua"]
+[ext_resource type="Shader" path="res://Scenes/shadow.gdshader" id="2_qt41q"]
 [ext_resource type="PackedScene" uid="uid://65hvrwjqf5ri" path="res://Scenes/Main_Menu/main_menu.tscn" id="4_3aqnq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s4pco"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmdre"]
-shader = ExtResource("2_o1e1x")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irpdc"]
+shader = ExtResource("2_qt41q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85xbh"]
-shader = ExtResource("3_pwiua")
+shader = ExtResource("2_qt41q")
 
 [node name="MainScene" type="Node2D"]
 material = SubResource("CanvasItemMaterial_s4pco")
 position = Vector2(0, -1)
-script = ExtResource("1_ntlwa")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
@@ -26,7 +23,7 @@ scroll_ignore_camera_zoom = true
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGL1"]
-material = SubResource("ShaderMaterial_nmdre")
+material = SubResource("ShaderMaterial_irpdc")
 position = Vector2(576, 324)
 scale = Vector2(0.505263, 0.4)
 texture = ExtResource("2_hyb84")
@@ -46,9 +43,9 @@ flip_h = true
 
 [node name="BatchBG" type="Sprite2D" parent="ParallaxBackground/BGL3"]
 
-[node name="Main_Menu" parent="." instance=ExtResource("4_3aqnq")]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(0, -3.05176e-05)
-energy = 0.21
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ParallaxBackground"]
+position = Vector2(0, -1)
+energy = 0.42
 blend_mode = 1
+
+[node name="Main_Menu" parent="." instance=ExtResource("4_3aqnq")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1lp01a1gaduu"]
+[gd_scene load_steps=7 format=3 uid="uid://d1lp01a1gaduu"]
 
-[ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/LVBatch1/Batch1Tiles.tres" id="1_0ee2h"]
+[ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_0ee2h"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_72otx"]
+[ext_resource type="PackedScene" uid="uid://itaeyea0p50v" path="res://Assets/Environment/Props/PropEdited/fencecandle.tscn" id="4_ugrpo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8n8a"]
 
@@ -51,3 +52,6 @@ shape = SubResource("RectangleShape2D_e2qwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Entry"]
 texture = ExtResource("3_72otx")
+
+[node name="Fencecandle" parent="." instance=ExtResource("4_ugrpo")]
+position = Vector2(-279, 764)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg7ulkpvpt4ji"
-path="res://.godot/imported/scene anyy_ background 3.png-b7356013fda369d7179458ee9fd8e6f9.ctex"
+path="res://.godot/imported/scene anyy_ background 3.png-5da47dbe55da37b11bd0fa3b896a7e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Props/scene anyy_ background 3.png"
-dest_files=["res://.godot/imported/scene anyy_ background 3.png-b7356013fda369d7179458ee9fd8e6f9.ctex"]
+source_file="res://Assets/Environment/Props/PropPNG/scene anyy_ background 3.png"
+dest_files=["res://.godot/imported/scene anyy_ background 3.png-5da47dbe55da37b11bd0fa3b896a7e89.ctex"]
 
 [params]
 

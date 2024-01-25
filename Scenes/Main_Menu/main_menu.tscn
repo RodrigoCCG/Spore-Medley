@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://65hvrwjqf5ri"]
+[gd_scene load_steps=7 format=3 uid="uid://65hvrwjqf5ri"]
 
 [ext_resource type="Texture2D" uid="uid://chsr3md0vv8ci" path="res://Assets/_Placeholders/titlecard.png" id="1_l823a"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_x2hqq"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Controls.gd" id="3_ds148"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Edit_keys.gd" id="4_01q82"]
+
+[sub_resource type="Gradient" id="Gradient_7c356"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2suou"]
+gradient = SubResource("Gradient_7c356")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -16,55 +24,67 @@ script = ExtResource("1_x2hqq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -387.0
-offset_top = -288.0
-offset_right = 388.336
-offset_bottom = -116.0
-texture = ExtResource("1_l823a")
-expand_mode = 3
+[node name="mainmenuCLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = -94.0
-offset_top = 24.0
-offset_right = 95.0
-offset_bottom = 85.0
-text = "Start Act 1"
+[node name="Button" type="Button" parent="mainmenuCLayer"]
+offset_left = 480.0
+offset_top = 264.0
+offset_right = 669.0
+offset_bottom = 325.0
+text = "Select Act
+"
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = -93.0
-offset_top = 102.0
-offset_right = 96.0
-offset_bottom = 163.0
+[node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button"]
+position = Vector2(94, 31)
+scale = Vector2(3, 0.96875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.41
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="Button2" type="Button" parent="mainmenuCLayer"]
+offset_left = 481.0
+offset_top = 342.0
+offset_right = 670.0
+offset_bottom = 403.0
 text = "Keybinds"
 
-[node name="Button3" type="Button" parent="."]
-layout_mode = 0
-offset_left = -94.0
-offset_top = 182.0
-offset_right = 95.0
-offset_bottom = 243.0
+[node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button2"]
+position = Vector2(94, 31)
+scale = Vector2(3, 0.96875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.41
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="Button3" type="Button" parent="mainmenuCLayer"]
+offset_left = 480.0
+offset_top = 422.0
+offset_right = 669.0
+offset_bottom = 483.0
 text = "Exit Game"
 
-[node name="InputControl" type="Panel" parent="."]
+[node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button3"]
+position = Vector2(94, 31)
+scale = Vector2(3, 0.96875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.41
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="InputControl" type="Panel" parent="mainmenuCLayer"]
 visible = false
-layout_mode = 0
 offset_left = -550.0
 offset_top = -95.0
 offset_right = -114.0
 offset_bottom = 310.0
 
-[node name="InputControl" type="ItemList" parent="InputControl"]
+[node name="InputControl" type="ItemList" parent="mainmenuCLayer/InputControl"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 52.0
 offset_right = 421.0
 offset_bottom = 396.0
 script = ExtResource("3_ds148")
 
-[node name="Input_Edit" type="TextEdit" parent="InputControl/InputControl"]
+[node name="Input_Edit" type="TextEdit" parent="mainmenuCLayer/InputControl/InputControl"]
 visible = false
 visibility_layer = 2
 layout_mode = 0
@@ -76,7 +96,7 @@ text = "Press a Key to Reassign"
 placeholder_text = "Key"
 script = ExtResource("4_01q82")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="InputControl"]
+[node name="RichTextLabel" type="RichTextLabel" parent="mainmenuCLayer/InputControl"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 10.0
@@ -84,7 +104,116 @@ offset_right = 366.0
 offset_bottom = 50.0
 text = "Click on a key to rebind it"
 
-[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_exit_pressed"]
-[connection signal="item_clicked" from="InputControl/InputControl" to="InputControl/InputControl/Input_Edit" method="_on_input_control_item_clicked"]
+[node name="actselectCLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="StartAct1" type="Button" parent="actselectCLayer"]
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 312.0
+text = "Act 1"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct1"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="StartAct2" type="Button" parent="actselectCLayer"]
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 376.0
+text = "Act 2"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct2"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="StartAct3" type="Button" parent="actselectCLayer"]
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 440.0
+text = "Act 3"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct3"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="StartAct4" type="Button" parent="actselectCLayer"]
+offset_left = 512.0
+offset_top = 448.0
+offset_right = 640.0
+offset_bottom = 504.0
+text = "Act 4"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct4"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="StartAct5" type="Button" parent="actselectCLayer"]
+offset_left = 512.0
+offset_top = 512.0
+offset_right = 640.0
+offset_bottom = 568.0
+text = "Act 5"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct5"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="Return" type="Button" parent="actselectCLayer"]
+offset_left = 128.0
+offset_top = 552.0
+offset_right = 256.0
+offset_bottom = 608.0
+text = "Return"
+
+[node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/Return"]
+position = Vector2(64, 28)
+scale = Vector2(2, 0.875)
+color = Color(0.294118, 0.686275, 0.8, 1)
+energy = 13.54
+texture = SubResource("GradientTexture2D_2suou")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -387.0
+offset_top = -288.0
+offset_right = 388.336
+offset_bottom = -116.0
+texture = ExtResource("1_l823a")
+expand_mode = 3
+
+[node name="Buttonlight" type="PointLight2D" parent="TextureRect"]
+position = Vector2(388.5, 88)
+scale = Vector2(12.2031, 2.75)
+color = Color(0.921569, 0.498039, 0.290196, 1)
+energy = 1.12
+blend_mode = 1
+texture = SubResource("GradientTexture2D_2suou")
+
+[connection signal="pressed" from="mainmenuCLayer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="mainmenuCLayer/Button2" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="mainmenuCLayer/Button3" to="." method="_on_exit_pressed"]
+[connection signal="item_clicked" from="mainmenuCLayer/InputControl/InputControl" to="mainmenuCLayer/InputControl/InputControl/Input_Edit" method="_on_input_control_item_clicked"]
+[connection signal="pressed" from="actselectCLayer/StartAct1" to="." method="_on_start_act_1_pressed"]
+[connection signal="pressed" from="actselectCLayer/StartAct2" to="." method="_on_start_act_2_pressed"]
+[connection signal="pressed" from="actselectCLayer/StartAct3" to="." method="_on_start_act_3_pressed"]
+[connection signal="pressed" from="actselectCLayer/StartAct4" to="." method="_on_start_act_4_pressed"]
+[connection signal="pressed" from="actselectCLayer/StartAct5" to="." method="_on_start_act_5_pressed"]
+[connection signal="pressed" from="actselectCLayer/Return" to="." method="_on_return_pressed"]

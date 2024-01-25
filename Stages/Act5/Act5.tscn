@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm8278kmvrh82"]
+
+[ext_resource type="Script" path="res://Stages/Act5/Act5.gd" id="1_n5gco"]
+[ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Characters/Baby/Baby.tscn" id="2_kphu4"]
+[ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_8ukxa"]
+
+[node name="Act5" type="Node2D"]
+script = ExtResource("1_n5gco")
+
+[node name="Baby" parent="." instance=ExtResource("2_kphu4")]
+HAS_FLUTE = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Baby"]
+texture = ExtResource("3_8ukxa")
