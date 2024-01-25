@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj543jnpbfmo4"]
+
+[ext_resource type="Texture2D" uid="uid://cemt6rg7wwjub" path="res://Assets/Environment/Props/PropPNG/Mush 1.png" id="1_djg7n"]
+
+[sub_resource type="Gradient" id="Gradient_ra7xm"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_juc7e"]
+gradient = SubResource("Gradient_ra7xm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="Whiteglowshroom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_djg7n")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2.47955e-05, 1.52588e-05)
+scale = Vector2(16, 12)
+color = Color(0.65098, 0.596078, 0.67451, 1)
+energy = 2.37
+texture = SubResource("GradientTexture2D_juc7e")

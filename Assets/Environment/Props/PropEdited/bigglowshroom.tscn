@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7pohyu7kn645"]
+
+[ext_resource type="Texture2D" uid="uid://c03b367xc3evg" path="res://Assets/Environment/Props/PropPNG/Big mushroom 1.png" id="1_2i118"]
+
+[sub_resource type="Gradient" id="Gradient_ra7xm"]
+offsets = PackedFloat32Array(0.25974, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfio0"]
+gradient = SubResource("Gradient_ra7xm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="bigglowshroom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2i118")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(9.53674e-07, -1.90735e-06)
+scale = Vector2(22.3125, 17.4688)
+color = Color(0.737255, 0.352941, 0.0666667, 1)
+energy = 6.45
+texture = SubResource("GradientTexture2D_lfio0")
