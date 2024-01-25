@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1lp01a1gaduu"]
+[gd_scene load_steps=8 format=3 uid="uid://d1lp01a1gaduu"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/LVBatch1/Batch1Tiles.tres" id="1_0ee2h"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_72otx"]
+[ext_resource type="Script" path="res://Stages/LVBatch1/Rooms/Controls_jump.gd" id="3_g8dlw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8n8a"]
 
@@ -9,6 +10,9 @@
 size = Vector2(319.125, 1281.63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2qwv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gok5m"]
+font_color = Color(0, 1, 1, 1)
 
 [node name="LVB1R1" type="Node2D"]
 
@@ -32,6 +36,15 @@ shape = SubResource("RectangleShape2D_0p66h")
 [node name="Sprite2D" type="Sprite2D" parent="Exit"]
 texture = ExtResource("3_72otx")
 
+[node name="Entry" type="Area2D" parent="."]
+position = Vector2(-1275, 262)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
+shape = SubResource("RectangleShape2D_e2qwv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Entry"]
+texture = ExtResource("3_72otx")
+
 [node name="Label" type="Label" parent="."]
 modulate = Color(0.431373, 0.505882, 0.313726, 1)
 offset_left = -800.0
@@ -43,11 +56,26 @@ text = "Room 1
 
 "
 
-[node name="Entry" type="Area2D" parent="."]
-position = Vector2(-1275, 262)
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.431373, 0.505882, 0.313726, 1)
+offset_left = -5593.74
+offset_top = 1002.44
+offset_right = -5534.74
+offset_bottom = 1051.44
+scale = Vector2(5.99217, 4.44804)
+text = "Room 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
-shape = SubResource("RectangleShape2D_e2qwv")
+"
 
-[node name="Sprite2D" type="Sprite2D" parent="Entry"]
-texture = ExtResource("3_72otx")
+[node name="Jump" type="Label" parent="."]
+modulate = Color(0.431373, 0.505882, 0.313726, 1)
+offset_left = -670.0
+offset_top = 330.0
+offset_right = -516.0
+offset_bottom = 379.0
+scale = Vector2(5.99217, 4.44804)
+theme_override_colors/font_color = Color(0, 0.94902, 0.976471, 1)
+text = "Press Blank to Jump
+"
+label_settings = SubResource("LabelSettings_gok5m")
+script = ExtResource("3_g8dlw")

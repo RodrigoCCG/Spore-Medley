@@ -58,6 +58,7 @@ offset_right = -114.0
 offset_bottom = 310.0
 
 [node name="InputControl" type="ItemList" parent="InputControl"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 52.0
 offset_right = 421.0
