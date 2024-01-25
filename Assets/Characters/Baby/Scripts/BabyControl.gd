@@ -182,8 +182,12 @@ func handle_animation():
 	if Input.is_action_pressed("shoot") and HAS_GUITAR:
 		if HOOK.hooked:
 			animationbeta.play("Swing")
-		else:
-			animationbeta.play("Guitar")
+	
+	if Input.is_action_just_pressed("shoot") and HAS_GUITAR:
+		animationbeta.play("Guitar")
+		animation_lock = true
+	elif Input.is_action_pressed("shoot") and HAS_GUITAR and !animation_lock:
+		animationbeta.play("Swing")
 		animation_lock = true
 	if Input.is_action_just_released("shoot"):
 		animation_lock = false

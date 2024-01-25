@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8kdowu4m6i1i"]
 
 [ext_resource type="Texture2D" uid="uid://o0pwmr4gev2f" path="res://Assets/Environment/Tile_sets/T_TREEBRANCH_LEFT_CENTER_RIGHT.png" id="1_sd1yy"]
-[ext_resource type="PackedScene" uid="uid://ic47q518di3d" path="res://Assets/Characters/Baby/Baby.tscn" id="2_awkkc"]
+[ext_resource type="PackedScene" uid="uid://c6i5bu8q17xis" path="res://Assets/Characters/Baby/Baby.tscn" id="2_awkkc"]
 [ext_resource type="Texture2D" uid="uid://2e2v13f6484t" path="res://Assets/Environment/Tile_sets/Platf_ Mushrooms_ size 1.png" id="2_fa86u"]
 [ext_resource type="Script" path="res://Stages/Test_Stages/Alternating_Tiles.gd" id="3_c8dku"]
 
