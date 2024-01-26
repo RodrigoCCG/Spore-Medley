@@ -25,7 +25,6 @@ script = ExtResource("1_x2hqq")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="mainmenuCLayer" type="CanvasLayer" parent="."]
-visible = false
 follow_viewport_enabled = true
 
 [node name="Button" type="Button" parent="mainmenuCLayer"]
@@ -107,6 +106,7 @@ offset_bottom = 50.0
 text = "Click on a key to rebind it"
 
 [node name="actselectCLayer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 
 [node name="StartAct1" type="Button" parent="actselectCLayer"]

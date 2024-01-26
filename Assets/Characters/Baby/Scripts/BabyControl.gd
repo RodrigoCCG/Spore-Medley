@@ -79,6 +79,8 @@ func _physics_process(delta):
 	move_and_slide()
 	#Animation
 	handle_animation()
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 
 func play_flute():
 	sfx_bus.play_flute()

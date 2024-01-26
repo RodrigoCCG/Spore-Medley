@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgegprp1uedn8"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4rjtcee2h82"]
 
 [ext_resource type="TileSet" uid="uid://cfutak3vprkvo" path="res://Stages/Act5/Batch5Tiles.tres" id="1_25wx5"]
 [ext_resource type="Script" path="res://Assets/Environment/Tile_sets/Alternating_Tiles.gd" id="2_x7bih"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0xev1s6rcq4r"]
+[gd_scene load_steps=9 format=3 uid="uid://c0xev1s6rcq4r"]
 
 [ext_resource type="Script" path="res://Scenes/MainScene.gd" id="1_ntlwa"]
 [ext_resource type="Texture2D" uid="uid://bkxuve8hbkbk0" path="res://Assets/Environment/Backgrounds/scene_1__background_1.png" id="2_hyb84"]
 [ext_resource type="Shader" path="res://Scenes/BackgroundDarkener.gdshader" id="2_o1e1x"]
-[ext_resource type="Shader" path="res://Scenes/Background.gdshader" id="3_pwiua"]
 [ext_resource type="PackedScene" uid="uid://65hvrwjqf5ri" path="res://Scenes/Main_Menu/main_menu.tscn" id="4_3aqnq"]
 [ext_resource type="Texture2D" uid="uid://4rwbvp78oe2v" path="res://Assets/Environment/Backgrounds/D INSIDE 2 v 1.png" id="5_2tdq0"]
 
@@ -11,9 +10,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmdre"]
 shader = ExtResource("2_o1e1x")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_85xbh"]
-shader = ExtResource("3_pwiua")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yt1qa"]
 shader = ExtResource("2_o1e1x")
@@ -23,28 +19,15 @@ material = SubResource("CanvasItemMaterial_s4pco")
 position = Vector2(0, -1)
 script = ExtResource("1_ntlwa")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_ignore_camera_zoom = true
-
-[node name="BGL1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGL1"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nmdre")
-position = Vector2(576, 324)
+position = Vector2(0, 1)
 scale = Vector2(0.505263, 0.4)
 texture = ExtResource("2_hyb84")
 
-[node name="BGL2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0)
-motion_mirroring = Vector2(2280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGL2"]
-material = SubResource("ShaderMaterial_85xbh")
-position = Vector2(1140, 320)
-scale = Vector2(1, 0.404938)
-texture = ExtResource("2_hyb84")
-flip_h = true
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+scroll_ignore_camera_zoom = true
 
 [node name="BGL3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)

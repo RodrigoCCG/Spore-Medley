@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs5kmkw84fg3g"]
+[gd_scene load_steps=4 format=3 uid="uid://bi2srap46aego"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_d8ryl"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_x0j88"]
