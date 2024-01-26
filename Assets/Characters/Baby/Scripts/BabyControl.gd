@@ -54,9 +54,9 @@ func _physics_process(delta):
 			if HAS_CYMBAL and !is_on_floor() and is_on_wall():
 				if Input.is_action_just_pressed("jump")and direction * LAST_DIRECTION > 0 :
 					player_walljump()
-		#Dash
-			if HAS_TUBA and DASH_READY and Input.is_action_just_pressed("dash"):
-				player_dash(LAST_DIRECTION)
+	#Dash
+	if HAS_TUBA and DASH_READY and Input.is_action_just_pressed("dash"):
+		player_dash(LAST_DIRECTION)
 	#Gravity
 	if !is_on_floor():
 		velocity.y += gravity_mod * gravity * delta
@@ -116,6 +116,7 @@ func player_movement(direction,delta):
 		elif !DASHING: velocity.x = 0 #Full Stop
 
 func player_dash(direction):
+	if direction != LAST_DIRECTION: return
 	#Set Speed and Gravity to Dashing Motion
 	sfx_bus.play_dash()
 	DASH_READY = false 
@@ -175,7 +176,7 @@ func handle_animation():
 			animationbeta.play("Idle")
 	
 	
-	if Input.is_action_just_pressed("flute") and HAS_FLUTE:
+	if Input.is_action_just_pressed("flute") and HAS_FLUTE and is_on_floor():
 		animationbeta.play("Flute")
 		animation_lock = true
 	if Input.is_action_pressed("shoot") and HAS_GUITAR:

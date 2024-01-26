@@ -4,6 +4,7 @@ var flip_timer = 5.0
 var flip_cells
 var flip_next = true
 @export var source_layer :int
+#@onready var baby :CharacterBody2D= get_parent().get_parent().get_child(0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#if Input.is_action_just_pressed("flute") and baby.is_on_floor():
 	if Input.is_action_just_pressed("flute"):
 		if flip_next: flip_tiles()
 	pass # Replace with function body.

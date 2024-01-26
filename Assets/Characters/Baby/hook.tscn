@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddiprpecqaag6"]
 
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/hook.gd" id="1_uthfq"]
-[ext_resource type="Texture2D" uid="uid://dfw2e3ymq62e8" path="res://Assets/Characters/Baby/Guitar Tip.png" id="2_78nml"]
+[ext_resource type="Texture2D" uid="uid://cqq8sed1mdytc" path="res://Assets/Characters/Baby/Guitar Tip (1).png" id="2_pggx6"]
 [ext_resource type="Texture2D" uid="uid://cjl17cbx1ib23" path="res://Assets/Characters/Baby/Guitar strings.png" id="3_v6y7d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csxq2"]
@@ -20,11 +20,11 @@ position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_csxq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Tip"]
-z_index = 1
-texture = ExtResource("2_78nml")
+texture = ExtResource("2_pggx6")
 offset = Vector2(0, -20)
 
 [node name="Links" type="Sprite2D" parent="."]
+z_index = 1
 texture_repeat = 2
 texture = ExtResource("3_v6y7d")
 centered = false

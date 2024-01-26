@@ -3,8 +3,8 @@
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_obtgh"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_gcbkp"]
 [ext_resource type="Script" path="res://Assets/Environment/Tile_sets/Alternating_Tiles.gd" id="3_rh3bs"]
-[ext_resource type="PackedScene" uid="uid://b7pohyu7kn645" path="res://Assets/Environment/Props/PropEdited/bigglowshroom.tscn" id="4_f1kjf"]
-[ext_resource type="PackedScene" uid="uid://b1ggp6b3fc2ey" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="5_a1wdb"]
+[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/bigglowshroom.tscn" id="4_f1kjf"]
+[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="5_a1wdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
 size = Vector2(452.905, 158)
