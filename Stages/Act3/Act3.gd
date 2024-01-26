@@ -22,7 +22,7 @@ func _ready():
 	baby.position = level_entry.position
 	baby.HAS_FLUTE = true
 	baby.HAS_TUBA = true
-	baby.HAS_CYMBAL = true
+	baby.HAS_CYMBAL = false
 	baby.HAS_GUITAR = false
 	var cam :Camera2D = baby.get_child(2)
 	cam.limit_right = 5000
