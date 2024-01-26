@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bskvgeg1juxh6"]
+[gd_scene load_steps=12 format=3 uid="uid://bskvgeg1juxh6"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="2_hqbq3"]
 [ext_resource type="Texture2D" uid="uid://mqk1s4i80qjo" path="res://Assets/Characters/NPC/Beethoven/Bees_house.png" id="3_h8aq3"]
 [ext_resource type="Script" path="res://Assets/Characters/NPC/Beethoven/Beethoven.gd" id="3_q7qha"]
 [ext_resource type="Texture2D" uid="uid://cm58ax552a03b" path="res://Assets/Characters/NPC/Beethoven/sprite sheet BEE 730.png" id="4_ofp8m"]
+[ext_resource type="Texture2D" uid="uid://cxlh6j5bmfbch" path="res://Assets/Characters/Baby/baby_textbox.aseprite" id="5_kkseb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4s2"]
 size = Vector2(549, 551)
@@ -28,6 +29,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SystemFont" id="SystemFont_2nlpu"]
 
 [node name="LVB1NPC" type="Node2D"]
 position = Vector2(913, 0)
@@ -91,6 +94,32 @@ scale = Vector2(1.08333, 1.08333)
 position = Vector2(11.1559, -127.513)
 scale = Vector2(0.543151, 0.561644)
 sprite_frames = SubResource("SpriteFrames_pu755")
+
+[node name="Container" type="MarginContainer" parent="BeesHouse"]
+offset_left = -903.333
+offset_top = -183.333
+offset_right = 24.6667
+offset_bottom = 255.667
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BeesHouse/Container"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_kkseb")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 26
+patch_margin_top = 26
+patch_margin_right = 24
+patch_margin_bottom = 26
+
+[node name="Containerinenenenene" type="MarginContainer" parent="BeesHouse/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BeesHouse/Container/Containerinenenenene"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_2nlpu")
+text = "TEST"
+vertical_alignment = 1
 
 [connection signal="body_entered" from="BeesHouse/Area2D" to="BeesHouse" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="BeesHouse/Area2D" to="BeesHouse" method="_on_area_2d_body_exited"]
