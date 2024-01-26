@@ -7,6 +7,7 @@
 script = ExtResource("1_o00u1")
 
 [node name="Baby" parent="." instance=ExtResource("2_rswrj")]
+scale = Vector2(0.9, 0.9)
 HAS_FLUTE = true
 HAS_TUBA = true
 HAS_CYMBAL = true
