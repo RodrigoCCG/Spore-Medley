@@ -16,7 +16,7 @@ var current_room: Node2D
 var can_enter = true
 var current_level: = 0
 func _ready(): 
-	var BGSet = get_parent().get_child(0).get_child(1).get_child(0).get_child(0)
+	var BGSet = get_parent().get_child(0).get_child(1)
 	current_room = room_array[0].instantiate()
 	add_child(current_room)
 	level_entry = current_room.get_node("Entry")

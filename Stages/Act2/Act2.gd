@@ -41,7 +41,7 @@ func _physics_process(_delta):
 
 
 func load_room(_which):
-	var BGSet = get_parent().get_child(0).get_child(0).get_child(0).get_child(0)
+	var BGSet = get_parent().get_child(0).get_child(1)
 	if current_level >= len(room_array):
 		get_tree().get_root().add_child(preload(next_act).instantiate())
 		queue_free()
