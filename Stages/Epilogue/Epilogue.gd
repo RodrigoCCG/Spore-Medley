@@ -1,12 +1,9 @@
 extends Node2D
 @onready var room_array = [
-	preload("res://Stages/Act5/Rooms/Level5_1.tscn"),
-	preload("res://Stages/Act5/Rooms/Level5_2.tscn"),
-	preload("res://Stages/Act5/Rooms/Level5_3.tscn"),
+	preload("res://Stages/Epilogue/Rooms/Epilogue.tscn"),
 ]
-var BGM = preload("res://Assets/Sound/BGM/Level_Cymbals/MUSIC_LVLCYMBAL_LOOPED.ogg")
+var BGM = preload("res://Assets/Sound/BGM/MUSIC_LVLEND_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/scene anyy_ background 3.png")
-const next_act = "res://Stages/Epilogue/Epilogue.tscn"
 @onready var baby = $Baby
 var level_entry :Node2D
 var level_exit :Area2D
@@ -42,23 +39,4 @@ func _physics_process(_delta):
 
 
 func load_room(_which):
-	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)
-	if current_level >= len(room_array):
-		get_tree().get_root().add_child(preload(next_act).instantiate())
-		queue_free()
-		return
-		
-	var next_room = room_array[current_level].instantiate()
-	
-	print("Current Room"+current_room.name)
-	print("Next Room"+next_room.name)
-	
-	level_entry = next_room.get_node("Entry")
-	remove_child(current_room)
-	current_room = next_room
-	level_exit = next_room.get_node("Exit")
-	add_child(next_room)
-	BGSet.offset.x = BGSet.offset.x - 150
-	BGSet.offset.y = BGSet.offset.y - 25
-	await get_tree().create_timer(1).timeout
-	can_enter = true
+	get_tree().quit() 

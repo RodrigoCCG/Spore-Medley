@@ -2,7 +2,8 @@ extends Node2D
 @onready var room_array = [
 	preload("res://Stages/Act4/Rooms/Level4_1.tscn"),
 	preload("res://Stages/Act4/Rooms/Level4_2.tscn"),
-	preload("res://Stages/Act4/Rooms/Level4_3.tscn")
+	preload("res://Stages/Act4/Rooms/Level4_3.tscn"),
+	preload("res://Stages/Act4/Rooms/NPC4.tscn")
 ]
 var BGM = preload("res://Assets/Sound/BGM/Level_Cymbals/MUSIC_LVLCYMBAL_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/D INSIDE 2 v 1.png")

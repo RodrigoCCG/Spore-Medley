@@ -3,6 +3,7 @@ extends Node2D
 	preload("res://Stages/Act3/Rooms/Level3_1.tscn"),
 	preload("res://Stages/Act3/Rooms/Level3_2.tscn"),
 	preload("res://Stages/Act3/Rooms/Level3_3.tscn"),
+	preload("res://Stages/Act3/Rooms/NPC3.tscn"),
 ]
 var BGM = preload("res://Assets/Sound/BGM/Level_Tuba/MUSIC_LVLTUBA_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/Dscene BIRD_ background 1.png")
