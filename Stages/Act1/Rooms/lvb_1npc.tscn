@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mqk1s4i80qjo" path="res://Assets/Characters/NPC/Beethoven/Bees_house.png" id="3_h8aq3"]
 [ext_resource type="Script" path="res://Assets/Characters/NPC/Beethoven/Beethoven.gd" id="3_q7qha"]
 [ext_resource type="Texture2D" uid="uid://cm58ax552a03b" path="res://Assets/Characters/NPC/Beethoven/sprite sheet BEE 730.png" id="4_ofp8m"]
-[ext_resource type="Texture2D" uid="uid://cxlh6j5bmfbch" path="res://Assets/Characters/Baby/baby_textbox.aseprite" id="5_kkseb"]
+[ext_resource type="Texture2D" uid="uid://blh8h67e26jat" path="res://Assets/Characters/Baby/baby_textbox.png" id="5_t3kju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4s2"]
 size = Vector2(549, 551)
@@ -104,12 +104,12 @@ offset_bottom = 255.667
 [node name="NinePatchRect" type="NinePatchRect" parent="BeesHouse/Container"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("5_kkseb")
-region_rect = Rect2(0, 0, 64, 64)
-patch_margin_left = 26
-patch_margin_top = 26
-patch_margin_right = 24
-patch_margin_bottom = 26
+texture = ExtResource("5_t3kju")
+region_rect = Rect2(0, 0, 83, 83)
+patch_margin_left = 33
+patch_margin_top = 33
+patch_margin_right = 30
+patch_margin_bottom = 32
 
 [node name="Containerinenenenene" type="MarginContainer" parent="BeesHouse/Container"]
 layout_mode = 2

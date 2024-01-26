@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxlh6j5bmfbch"
-path="res://.godot/imported/baby_textbox.aseprite-43c7a1e26a79f4e5967bd7cb210a030b.ctex"
+uid="uid://blh8h67e26jat"
+path="res://.godot/imported/baby_textbox.png-b8540b710d3a4a958e49fec7fc7f7a87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Baby/baby_textbox.aseprite"
-dest_files=["res://.godot/imported/baby_textbox.aseprite-43c7a1e26a79f4e5967bd7cb210a030b.ctex"]
+source_file="res://Assets/Characters/Baby/baby_textbox.png"
+dest_files=["res://.godot/imported/baby_textbox.png-b8540b710d3a4a958e49fec7fc7f7a87.ctex"]
 
 [params]
 

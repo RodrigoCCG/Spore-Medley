@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 aseprite_executable_path="D:/GAME_DEV/aseprite/Aseprite-v1.3-rc8-x64/Aseprite.exe"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
-
 [input]
 
 left={
