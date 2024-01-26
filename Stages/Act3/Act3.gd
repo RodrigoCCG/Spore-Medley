@@ -1,6 +1,8 @@
 extends Node2D
 @onready var room_array = [
-	preload("res://Stages/Act3/Rooms/sampleroom.tscn")
+	preload("res://Stages/Act3/Rooms/Level3_1.tscn"),
+	preload("res://Stages/Act3/Rooms/Level3_2.tscn"),
+	preload("res://Stages/Act3/Rooms/Level3_3.tscn"),
 ]
 var Background = preload("res://Assets/Environment/Backgrounds/Dscene BIRD_ background 1.png")
 const next_act = "res://Stages/Act4/Act4.tscn"
@@ -22,6 +24,8 @@ func _ready():
 	baby.HAS_TUBA = true
 	baby.HAS_CYMBAL = true
 	baby.HAS_GUITAR = false
+	var cam :Camera2D = baby.get_child(2)
+	cam.limit_right = 5000
 	BGSet.texture = Background
 	
 func _physics_process(_delta):

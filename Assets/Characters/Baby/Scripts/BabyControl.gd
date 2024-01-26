@@ -52,8 +52,9 @@ func _physics_process(delta):
 	if !DASHING:
 		#Wall Jump
 			if HAS_CYMBAL and !is_on_floor() and is_on_wall():
-				if Input.is_action_just_pressed("jump")and direction * LAST_DIRECTION > 0 :
+				if Input.is_action_just_pressed("jump") and direction * LAST_DIRECTION > 0 :
 					player_walljump()
+					handle_animation()
 	#Dash
 	if HAS_TUBA and DASH_READY and Input.is_action_just_pressed("dash"):
 		player_dash(LAST_DIRECTION)
@@ -162,20 +163,28 @@ func handle_animation():
 	else : animationbeta.flip_h = LAST_DIRECTION < 0
 	#Animation cycles
 	if !animation_lock:
-		if velocity.x != 0 and is_on_floor():
-			animationbeta.play("Walk")
-		elif Input.is_action_just_pressed("jump"):
-			animationbeta.play("Jump")
+		if is_on_floor():
+			WALL_JUMP = false
+			if velocity.x != 0 :
+				animationbeta.play("Walk")
+			elif Input.is_action_just_pressed("jump"):
+				animationbeta.play("Jump")
+			elif velocity.x == 0 and velocity.y == 0:
+				animationbeta.play("Idle")
 		elif velocity.y > 0:
 			animationbeta.play("Fall")
 		elif velocity.y < 0:
-			animationbeta.play("Rise")
-		elif velocity.x == 0 and velocity.y == 0:
-			animationbeta.play("Idle")
-		elif velocity.x == 0 and velocity.y == 0:
-			animationbeta.play("Idle")
+			if WALL_JUMP:
+				animationbeta.play("Cymbaljump")
+			else:
+				animationbeta.play("Rise")
 	
-	
+	if HAS_CYMBAL and !is_on_floor() and is_on_wall():
+		if Input.is_action_just_pressed("jump"):
+			WALL_JUMP = true
+			animationbeta.play("Walljump")
+			animation_lock = true
+			
 	if Input.is_action_just_pressed("flute") and HAS_FLUTE and is_on_floor():
 		animationbeta.play("Flute")
 		animation_lock = true
@@ -203,5 +212,6 @@ func handle_animation():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	animation_lock = false
+	if animation_lock == true:
+		animation_lock = false
 	pass # Replace with function body.
