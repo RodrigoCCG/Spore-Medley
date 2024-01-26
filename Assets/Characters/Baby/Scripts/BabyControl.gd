@@ -223,7 +223,6 @@ func handle_animation():
 		tuba_particle.emitting = true
 		if animationbeta.flip_h:
 			tuba_particle.rotation = 0
-			ParticleProcessMaterial
 			tuba_particle.process_material.emission_shape_offset = Vector3(100.0,-45.0,0.0)
 		else: 
 			tuba_particle.rotation = deg_to_rad(-180)
@@ -237,11 +236,14 @@ func handle_animation():
 		tuba_particle.emitting=false
 		animation_lock = false
 
+var all_shrooms = []
+
 func add_shroom():
 	if get_parent().get_child_count() > 50: return
 	var new_shroom = floating_shroom.instantiate()
+	all_shrooms.append(new_shroom)
 	new_shroom.global_position = global_position
-	get_parent().add_child(floating_shroom.instantiate())
+	get_parent().add_child(new_shroom)
 
 func _on_animated_sprite_2d_animation_finished():
 	if animation_lock == true:

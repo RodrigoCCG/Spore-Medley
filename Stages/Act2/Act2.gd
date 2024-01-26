@@ -53,7 +53,8 @@ func load_room(_which):
 	print("Next Room"+next_room.name)
 	
 	level_entry = next_room.get_node("Entry")
-	remove_child(current_room)
+	for mushroom in baby.all_shrooms: remove_child(mushroom)
+	get_parent().remove_child(current_room)
 	current_room = next_room
 	level_exit = next_room.get_node("Exit")
 	add_child(next_room)
