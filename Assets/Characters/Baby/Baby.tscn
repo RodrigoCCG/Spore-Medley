@@ -41,7 +41,7 @@ script = ExtResource("1_k1lki")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_4sk7x")
-animation = &"Walljump"
+animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1

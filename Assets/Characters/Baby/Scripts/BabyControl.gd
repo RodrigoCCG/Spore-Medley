@@ -166,6 +166,7 @@ func handle_animation():
 		if is_on_floor():
 			WALL_JUMP = false
 			if velocity.x != 0 :
+				sfx_bus.play_steps()
 				animationbeta.play("Walk")
 			elif Input.is_action_just_pressed("jump"):
 				animationbeta.play("Jump")
@@ -183,6 +184,7 @@ func handle_animation():
 		if Input.is_action_just_pressed("jump"):
 			WALL_JUMP = true
 			animationbeta.play("Walljump")
+			sfx_bus.play_walljump()
 			animation_lock = true
 			
 	if Input.is_action_just_pressed("flute") and HAS_FLUTE and is_on_floor():

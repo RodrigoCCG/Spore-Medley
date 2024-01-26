@@ -25,12 +25,14 @@ script = ExtResource("1_x2hqq")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="mainmenuCLayer" type="CanvasLayer" parent="."]
+visible = false
+follow_viewport_enabled = true
 
 [node name="Button" type="Button" parent="mainmenuCLayer"]
-offset_left = 480.0
-offset_top = 264.0
-offset_right = 669.0
-offset_bottom = 325.0
+offset_left = -98.0
+offset_top = 5.0
+offset_right = 91.0
+offset_bottom = 66.0
 text = "Select Act
 "
 
@@ -42,10 +44,10 @@ energy = 13.41
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="Button2" type="Button" parent="mainmenuCLayer"]
-offset_left = 481.0
-offset_top = 342.0
-offset_right = 670.0
-offset_bottom = 403.0
+offset_left = -99.0
+offset_top = 95.0
+offset_right = 90.0
+offset_bottom = 156.0
 text = "Keybinds"
 
 [node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button2"]
@@ -56,10 +58,10 @@ energy = 13.41
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="Button3" type="Button" parent="mainmenuCLayer"]
-offset_left = 480.0
-offset_top = 422.0
-offset_right = 669.0
-offset_bottom = 483.0
+offset_left = -98.0
+offset_top = 191.0
+offset_right = 91.0
+offset_bottom = 252.0
 text = "Exit Game"
 
 [node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button3"]
@@ -105,13 +107,13 @@ offset_bottom = 50.0
 text = "Click on a key to rebind it"
 
 [node name="actselectCLayer" type="CanvasLayer" parent="."]
-visible = false
+follow_viewport_enabled = true
 
 [node name="StartAct1" type="Button" parent="actselectCLayer"]
-offset_left = 512.0
-offset_top = 256.0
-offset_right = 640.0
-offset_bottom = 312.0
+offset_left = -64.0
+offset_top = -63.0
+offset_right = 64.0
+offset_bottom = -7.0
 text = "Act 1"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct1"]
@@ -122,10 +124,10 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="StartAct2" type="Button" parent="actselectCLayer"]
-offset_left = 512.0
-offset_top = 320.0
-offset_right = 640.0
-offset_bottom = 376.0
+offset_left = -64.0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 57.0
 text = "Act 2"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct2"]
@@ -136,10 +138,10 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="StartAct3" type="Button" parent="actselectCLayer"]
-offset_left = 512.0
-offset_top = 384.0
-offset_right = 640.0
-offset_bottom = 440.0
+offset_left = -64.0
+offset_top = 65.0
+offset_right = 64.0
+offset_bottom = 121.0
 text = "Act 3"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct3"]
@@ -150,10 +152,10 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="StartAct4" type="Button" parent="actselectCLayer"]
-offset_left = 512.0
-offset_top = 448.0
-offset_right = 640.0
-offset_bottom = 504.0
+offset_left = -64.0
+offset_top = 129.0
+offset_right = 64.0
+offset_bottom = 185.0
 text = "Act 4"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct4"]
@@ -164,10 +166,10 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="StartAct5" type="Button" parent="actselectCLayer"]
-offset_left = 512.0
-offset_top = 512.0
-offset_right = 640.0
-offset_bottom = 568.0
+offset_left = -64.0
+offset_top = 193.0
+offset_right = 64.0
+offset_bottom = 249.0
 text = "Act 5"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/StartAct5"]
@@ -178,10 +180,10 @@ energy = 13.54
 texture = SubResource("GradientTexture2D_2suou")
 
 [node name="Return" type="Button" parent="actselectCLayer"]
-offset_left = 128.0
-offset_top = 552.0
-offset_right = 256.0
-offset_bottom = 608.0
+offset_left = -448.0
+offset_top = 233.0
+offset_right = -320.0
+offset_bottom = 289.0
 text = "Return"
 
 [node name="Buttonlight" type="PointLight2D" parent="actselectCLayer/Return"]
