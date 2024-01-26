@@ -4,6 +4,7 @@ extends Node2D
 	preload("res://Stages/Act4/Rooms/Level4_2.tscn"),
 	preload("res://Stages/Act4/Rooms/Level4_3.tscn")
 ]
+var BGM = preload("res://Assets/Sound/BGM/Level_Cymbals/MUSIC_LVLCYMBAL_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/D INSIDE 2 v 1.png")
 const next_act = "res://Stages/Act5/Act5.tscn"
 
@@ -24,6 +25,8 @@ func _ready():
 	baby.HAS_TUBA = true
 	baby.HAS_CYMBAL = true
 	baby.HAS_GUITAR = false
+	baby.get_child(5).stream = BGM
+	baby.get_child(5).play()
 	BGSet.texture = Background
 	
 func _physics_process(_delta):

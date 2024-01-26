@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
 size = Vector2(416, 43.75)
 
-[node name="Level5_1" type="Node2D"]
+[node name="Level3_3" type="Node2D"]
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = ExtResource("1_cdux6")

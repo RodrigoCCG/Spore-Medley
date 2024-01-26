@@ -3,6 +3,7 @@ extends Node2D
 	preload("res://Stages/Act2/Rooms/sampleroom.tscn"),
 	preload("res://Stages/Act2/Rooms/sampleroom2.tscn")
 ]
+var BGM = preload("res://Assets/Sound/BGM/Level_Flute/MUSIC_LVLFLUTE_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/Dscene BEETLE b 2.png")
 const next_act = "res://Stages/Act3/Act3.tscn"
 
@@ -20,9 +21,11 @@ func _ready():
 	level_exit = current_room.get_node("Exit")
 	baby.position = level_entry.position
 	baby.HAS_FLUTE = true
-	baby.HAS_TUBA = true
-	baby.HAS_CYMBAL = true
+	baby.HAS_TUBA = false
+	baby.HAS_CYMBAL = false
 	baby.HAS_GUITAR = false
+	baby.get_child(5).stream = BGM
+	baby.get_child(5).play()
 	BGSet.texture = Background
 	
 func _physics_process(_delta):

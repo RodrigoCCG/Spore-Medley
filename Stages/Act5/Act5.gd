@@ -4,6 +4,7 @@ extends Node2D
 	preload("res://Stages/Act5/Rooms/Level5_2.tscn"),
 	preload("res://Stages/Act5/Rooms/Level5_3.tscn"),
 ]
+var BGM = preload("res://Assets/Sound/BGM/Level_Cymbals/MUSIC_LVLCYMBAL_LOOPED.ogg")
 var Background = preload("res://Assets/Environment/Backgrounds/scene anyy_ background 3.png")
 @onready var baby = $Baby
 var level_entry :Node2D
@@ -22,6 +23,8 @@ func _ready():
 	baby.HAS_TUBA = true
 	baby.HAS_CYMBAL = true
 	baby.HAS_GUITAR = true
+	baby.get_child(5).stream = BGM
+	baby.get_child(5).play()
 	var cam :Camera2D = baby.get_child(2)
 	cam.limit_right = 5000
 	BGSet.texture = Background
