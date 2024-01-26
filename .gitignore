@@ -1,11 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-/Assets/Sound/BGM/Beginning
-/Assets/Sound/BGM/Level_Cymbals
-/Assets/Sound/BGM/Level_Flute
-/Assets/Sound/BGM/Level_Tuba
-/Assets/Sound/BGM/NPC_MUSIC
 /Assets/Sound/SFX/Ambiance
 /Assets/Sound/SFX/Environnement
-/Assets/Sound/SFX/Footsteps
 /Addons

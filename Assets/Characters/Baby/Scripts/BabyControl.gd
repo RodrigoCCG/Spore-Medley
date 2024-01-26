@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var animationbeta = $AnimatedSprite2D
 @onready var sfx_bus = $SFX_Player
 @onready var bgm_bus = $BGM_Player
+@onready var tuba_particle :GPUParticles2D= $Tuba
 #Movement Variables
 @export var Spawn: int
 var LAST_DIRECTION = 1
@@ -205,10 +206,12 @@ func handle_animation():
 	if Input.is_action_just_pressed("dash") and HAS_TUBA:
 		animationbeta.play("Dash")
 		animation_lock = true
+		tuba_particle.emitting = true
 		while animation_lock: await get_tree().create_timer(1.0/60.0).timeout
 		animation_lock = true
 		animationbeta.play("Dashing")
 		await get_tree().create_timer(DASH_DURATION).timeout
+		tuba_particle.emitting=false
 		animation_lock = false
 
 
