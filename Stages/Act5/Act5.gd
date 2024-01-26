@@ -31,7 +31,7 @@ func _physics_process(_delta):
 			print("Touching Exit of "+str(level_exit.get_parent().name))
 			call_deferred("load_room",+1)
 			baby.position = level_entry.position
-	print(can_enter)
+
 
 func load_room(_which):
 	var BGSet = get_parent().get_child(0).get_child(0).get_child(2).get_child(0)

@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://bskvgeg1juxh6"]
+[gd_scene load_steps=10 format=3 uid="uid://bskvgeg1juxh6"]
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="2_hqbq3"]
 [ext_resource type="Texture2D" uid="uid://mqk1s4i80qjo" path="res://Assets/Characters/NPC/Beethoven/Bees_house.png" id="3_h8aq3"]
+[ext_resource type="Script" path="res://Assets/Characters/NPC/Beethoven/Beethoven.gd" id="3_q7qha"]
+[ext_resource type="Texture2D" uid="uid://cm58ax552a03b" path="res://Assets/Characters/NPC/Beethoven/sprite sheet BEE 730.png" id="4_ofp8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4s2"]
 size = Vector2(549, 551)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a3ac"]
+size = Vector2(796, 810.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt32w"]
+size = Vector2(584.039, 257.885)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi3ls"]
+atlas = ExtResource("4_ofp8m")
+region = Rect2(0, 0, 730, 730)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu755"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi3ls")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="LVB1NPC" type="Node2D"]
 position = Vector2(913, 0)
@@ -12,27 +35,62 @@ position = Vector2(913, 0)
 [node name="R3Tiles" type="TileMap" parent="."]
 tile_set = ExtResource("2_hqbq3")
 format = 2
-layer_0/tile_data = PackedInt32Array(393206, 0, 1, 393207, 0, 1, 393208, 0, 1, 393209, 0, 1, 393210, 0, 1, 393211, 0, 1, 393212, 0, 1, 393213, 0, 1, 393214, 0, 1, 393215, 0, 1, 327680, 0, 1, 327681, 0, 1, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 0, 1, 327688, 0, 1, 327689, 0, 1, 327690, 0, 1, 327691, 0, 1, 262155, 0, 1, 196619, 0, 1, 131083, 0, 1, 65547, 0, 1, 11, 0, 1, -65525, 0, 1, -131061, 0, 1, 393205, 0, 1, 393204, 0, 1, 393203, 0, 1, 393202, 0, 1, 393201, 0, 1, 327665, 0, 1, 262129, 0, 1, 196593, 0, 1, 131057, 0, 1, 65521, 0, 1, -15, 0, 1)
-
-[node name="Label" type="Label" parent="."]
-self_modulate = Color(1, 0.14902, 1, 1)
-offset_left = -16.0
-offset_top = 384.0
-offset_right = 521.0
-offset_bottom = 407.0
-scale = Vector2(2.84046, 7.22595)
-text = "NPC ROOM MEET THE FAMOUS BEETHOVEN AT THIS SPOT VERY SOON"
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(393206, 0, 1, 393207, 0, 1, 393208, 0, 1, 393209, 0, 1, 393210, 0, 1, 393211, 0, 1, 393212, 0, 1, 393213, 0, 1, 393214, 0, 1, 393215, 0, 1, 327680, 0, 1, 327681, 0, 1, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 0, 1, 327688, 0, 1, 327689, 0, 1, 327690, 0, 1, 327691, 0, 1, 262155, 0, 1, 196619, 0, 1, 131083, 0, 1, 65547, 0, 1, 11, 0, 1, -65525, 0, 1, -131061, 0, 1, 458741, 0, 1, 524277, 0, 1, 524276, 0, 1, 589812, 0, 1, 589811, 0, 1, 655347, 0, 1, 655346, 0, 1, 655345, 0, 1, 655344, 0, 1, 655343, 0, 1, 655342, 0, 1, 655341, 0, 1, 655340, 0, 1, 589804, 0, 1, 524268, 0, 1, 524267, 0, 1, 458731, 0, 1, 393195, 0, 1, 327659, 0, 1, 262123, 0, 1, 196587, 0, 1, 131051, 0, 1, 131052, 0, 1, 65516, 0, 1, 458743, 0, 1, 458742, 0, 1, 458744, 0, 1, 458745, 0, 1, 458746, 0, 1)
+layer_1/name = "Flip"
+layer_1/tile_data = PackedInt32Array(262133, 196613, 0, 196595, 196613, 0, 131057, 196613, 0, 131056, 196613, 0, 131055, 196613, 0, 196594, 196613, 0, 262132, 196613, 0)
 
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-907, -87)
 
 [node name="Exit" type="Area2D" parent="."]
-position = Vector2(1281, 452)
+position = Vector2(-2273, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-4, -7)
 shape = SubResource("RectangleShape2D_kr4s2")
 
 [node name="BeesHouse" type="Sprite2D" parent="."]
-position = Vector2(1373, 202)
+position = Vector2(951, 56)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_h8aq3")
+script = ExtResource("3_q7qha")
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="BeesHouse"]
+position = Vector2(-792.5, -46.6667)
+scale = Vector2(0.833333, 0.833333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeesHouse/CollisionShape2D"]
+position = Vector2(693, 309.25)
+shape = SubResource("RectangleShape2D_8a3ac")
+
+[node name="Area2D" type="Area2D" parent="BeesHouse"]
+position = Vector2(-346.667, 493.333)
+rotation = -0.174533
+scale = Vector2(1.08333, 1.08333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeesHouse/Area2D"]
+position = Vector2(-477.907, -140.8)
+rotation = 0.174533
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_mt32w")
+
+[node name="Camera2D" type="Camera2D" parent="BeesHouse"]
+position = Vector2(-706.667, 313.333)
+rotation = -0.174533
+scale = Vector2(1.08333, 1.08333)
+enabled = false
+zoom = Vector2(0.85, 0.85)
+
+[node name="Beethoven" type="Node2D" parent="BeesHouse"]
+position = Vector2(-346.667, 493.333)
+rotation = -0.174533
+scale = Vector2(1.08333, 1.08333)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BeesHouse/Beethoven"]
+position = Vector2(11.1559, -127.513)
+scale = Vector2(0.543151, 0.561644)
+sprite_frames = SubResource("SpriteFrames_pu755")
+
+[connection signal="body_entered" from="BeesHouse/Area2D" to="BeesHouse" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="BeesHouse/Area2D" to="BeesHouse" method="_on_area_2d_body_exited"]
