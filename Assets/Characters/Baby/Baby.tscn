@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6i5bu8q17xis"]
+[gd_scene load_steps=17 format=3 uid="uid://c6i5bu8q17xis"]
 
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BabyControl.gd" id="1_k1lki"]
 [ext_resource type="SpriteFrames" uid="uid://bkbj17gq8xaye" path="res://Assets/Characters/Baby/baby_spriteframes.tres" id="2_4sk7x"]
@@ -10,9 +10,22 @@
 [ext_resource type="Script" path="res://Assets/Characters/Baby/Scripts/BGM_Player.gd" id="7_vbq68"]
 [ext_resource type="Material" uid="uid://c0um55aibtofv" path="res://Assets/Characters/Baby/Particles/Tuba.tres" id="9_ayg23"]
 [ext_resource type="Texture2D" uid="uid://bbpvwwtiumw57" path="res://Assets/Environment/Props/PropPNG/Flute Mushroom visual key.png" id="10_tl7vd"]
+[ext_resource type="Material" uid="uid://mnrhaip5ae2d" path="res://Assets/Characters/Baby/Particles/guitar.tres" id="10_uud8s"]
+[ext_resource type="Material" uid="uid://c58itkyy236nr" path="res://Assets/Characters/Baby/Particles/Cymbal.tres" id="11_kbiqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6la7c"]
 size = Vector2(20.9719, 39.2728)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5601b"]
+particle_flag_disable_z = true
+spread = 32.964
+initial_velocity_min = 30.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, -60, 0)
+scale_min = 0.1
+scale_max = 0.3
+turbulence_noise_strength = 0.05
+turbulence_noise_scale = 1.275
 
 [sub_resource type="Gradient" id="Gradient_i2pcg"]
 offsets = PackedFloat32Array(0, 0.151724, 0.448276, 0.751724)
@@ -58,12 +71,12 @@ autoplay = true
 script = ExtResource("7_vbq68")
 
 [node name="Deadbaby" type="GPUParticles2D" parent="."]
+z_index = 1
 position = Vector2(-78, -19)
-rotation = -2.64215
 scale = Vector2(2, 2)
 emitting = false
 amount = 30
-process_material = ExtResource("9_ayg23")
+process_material = SubResource("ParticleProcessMaterial_5601b")
 texture = ExtResource("10_tl7vd")
 lifetime = 5.0
 speed_scale = 1.75
@@ -72,10 +85,60 @@ randomness = 0.1
 trail_lifetime = 1.64
 trail_sections = 2
 
-[node name="Tuba" type="GPUParticles2D" parent="."]
-rotation = 3.14159
+[node name="Guitar" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(-78, -19)
+rotation = -1.5708
 scale = Vector2(2, 2)
-amount = 50
+emitting = false
+amount = 30
+process_material = ExtResource("10_uud8s")
+texture = ExtResource("10_tl7vd")
+lifetime = 3.0
+speed_scale = 1.75
+explosiveness = 0.65
+randomness = 0.1
+trail_lifetime = 1.64
+trail_sections = 2
+
+[node name="Flute" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(-78, -19)
+rotation = -1.5708
+scale = Vector2(2, 2)
+emitting = false
+amount = 30
+process_material = ExtResource("10_uud8s")
+texture = ExtResource("10_tl7vd")
+lifetime = 3.0
+speed_scale = 1.75
+explosiveness = 0.65
+randomness = 0.1
+trail_lifetime = 1.64
+trail_sections = 2
+
+[node name="Cymbal" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(-78, -19)
+rotation = -1.5708
+scale = Vector2(2, 2)
+emitting = false
+amount = 10
+process_material = ExtResource("11_kbiqj")
+texture = ExtResource("10_tl7vd")
+lifetime = 2.0
+speed_scale = 1.75
+explosiveness = 1.0
+randomness = 0.1
+trail_lifetime = 1.64
+trail_sections = 2
+
+[node name="Tuba" type="GPUParticles2D" parent="."]
+z_index = 1
+rotation = -3.14159
+scale = Vector2(2, 2)
+emitting = false
+amount = 25
 process_material = ExtResource("9_ayg23")
 texture = ExtResource("10_tl7vd")
 lifetime = 3.0

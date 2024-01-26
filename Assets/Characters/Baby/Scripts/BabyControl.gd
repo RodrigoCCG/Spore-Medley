@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var sfx_bus = $SFX_Player
 @onready var bgm_bus = $BGM_Player
 @onready var tuba_particle :GPUParticles2D= $Tuba
+@onready var guitar_particle :GPUParticles2D= $Guitar
+@onready var flute_particle :GPUParticles2D= $Flute
+@onready var cymbal_particle :GPUParticles2D= $Cymbal
+@onready var floating_shroom = preload("res://Assets/Environment/Props/floating_shroom.tscn")
 #Movement Variables
 @export var Spawn: int
 var LAST_DIRECTION = 1
@@ -153,7 +157,7 @@ func player_walljump():
 		await get_tree().create_timer(1.0/60.0).timeout
 	#Return control to player
 	DASHING = false
-
+	
 var animation_lock = false
 func handle_animation():
 	#Face Left and Right, remember last direction faced
@@ -185,38 +189,65 @@ func handle_animation():
 		if Input.is_action_just_pressed("jump"):
 			WALL_JUMP = true
 			animationbeta.play("Walljump")
+			cymbal_particle.emitting=true
 			sfx_bus.play_walljump()
 			animation_lock = true
 			
 	if Input.is_action_just_pressed("flute") and HAS_FLUTE and is_on_floor():
 		animationbeta.play("Flute")
+		flute_particle.emitting=true
 		animation_lock = true
+		add_shroom()
 	if Input.is_action_pressed("shoot") and HAS_GUITAR:
 		if HOOK.hooked:
+			guitar_particle.emitting = false
 			animationbeta.play("Swing")
+		else:
+			guitar_particle.emitting=true
 	
 	if Input.is_action_just_pressed("shoot") and HAS_GUITAR:
 		animationbeta.play("Guitar")
 		animation_lock = true
+		add_shroom()
 	elif Input.is_action_pressed("shoot") and HAS_GUITAR and !animation_lock:
 		animationbeta.play("Swing")
+		guitar_particle.emitting = false
 		animation_lock = true
+		add_shroom()
 	if Input.is_action_just_released("shoot"):
 		animation_lock = false
 	if Input.is_action_just_pressed("dash") and HAS_TUBA:
 		animationbeta.play("Dash")
 		animation_lock = true
+		add_shroom()
 		tuba_particle.emitting = true
+		if animationbeta.flip_h:
+			tuba_particle.rotation = 0
+			ParticleProcessMaterial
+			tuba_particle.process_material.emission_shape_offset = Vector3(100.0,-45.0,0.0)
+		else: 
+			tuba_particle.rotation = deg_to_rad(-180)
+			tuba_particle.process_material.emission_shape_offset = Vector3(100.0,45.0,0.0)
 		while animation_lock: await get_tree().create_timer(1.0/60.0).timeout
 		animation_lock = true
+		add_shroom()
 		animationbeta.play("Dashing")
+		
 		await get_tree().create_timer(DASH_DURATION).timeout
 		tuba_particle.emitting=false
 		animation_lock = false
 
-
+func add_shroom():
+	if get_parent().get_child_count() > 50: return
+	var new_shroom = floating_shroom.instantiate()
+	new_shroom.global_position = global_position
+	get_parent().add_child(floating_shroom.instantiate())
 
 func _on_animated_sprite_2d_animation_finished():
 	if animation_lock == true:
 		animation_lock = false
+	flute_particle.emitting = false
+	guitar_particle.emitting = false
+	cymbal_particle.emitting = false
+	tuba_particle.emitting = false
 	pass # Replace with function body.
