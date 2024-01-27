@@ -58,6 +58,8 @@ limit_left = -2100
 limit_right = 2100
 script = ExtResource("3_wxbm6")
 
+[node name="Campos" type="Node2D" parent="Camera2D"]
+
 [node name="Hook" parent="." instance=ExtResource("4_q2e48")]
 z_index = -2
 

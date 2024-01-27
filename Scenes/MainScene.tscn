@@ -21,14 +21,14 @@ script = ExtResource("1_ntlwa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nmdre")
-position = Vector2(0, 1)
-scale = Vector2(0.505263, 0.4)
+position = Vector2(0.000263214, 1.00006)
+scale = Vector2(2.69474, 1.97531)
 texture = ExtResource("2_hyb84")
 
 [node name="BatchBG" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_yt1qa")
-position = Vector2(0, 1)
-scale = Vector2(1.7, 1.7)
+position = Vector2(-0.000183105, 0.99994)
+scale = Vector2(2.69474, 1.97531)
 texture = ExtResource("5_2tdq0")
 
 [node name="Main_Menu" parent="." instance=ExtResource("4_3aqnq")]

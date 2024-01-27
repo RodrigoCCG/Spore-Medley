@@ -26,30 +26,35 @@ func _on_start_act_1_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act1.instantiate()
 	get_tree().get_root().add_child(level_instance)
+	get_parent().game_started = true
 	queue_free()
 
 func _on_start_act_2_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act2.instantiate()
 	get_tree().get_root().add_child(level_instance)
+	get_parent().game_started = true
 	queue_free()
 
 func _on_start_act_3_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act3.instantiate()
 	get_tree().get_root().add_child(level_instance)
+	get_parent().game_started = true
 	queue_free()
 
 func _on_start_act_4_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act4.instantiate()
 	get_tree().get_root().add_child(level_instance)
+	get_parent().game_started = true
 	queue_free()
 
 func _on_start_act_5_pressed():
 	$Camera2D.enabled = false
 	var level_instance = Act5.instantiate()
 	get_tree().get_root().add_child(level_instance)
+	get_parent().game_started = true
 	queue_free()
 
 func _on_return_pressed():
