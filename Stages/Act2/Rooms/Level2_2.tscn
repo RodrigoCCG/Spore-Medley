@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="3_kb183"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
-size = Vector2(399, 27.75)
+size = Vector2(399, 80)
 
 [node name="Level3_1" type="Node2D"]
 
@@ -13,23 +13,11 @@ size = Vector2(399, 27.75)
 position = Vector2(-228, -1970)
 
 [node name="Exitshape" type="CollisionShape2D" parent="Exit"]
-position = Vector2(303.5, 142.125)
+position = Vector2(303.5, 139)
 shape = SubResource("RectangleShape2D_eq7n0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Exit"]
 texture = ExtResource("3_kb183")
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(1, 0.2, 0.152941, 1)
-offset_left = 176.0
-offset_top = 200.0
-offset_right = 304.0
-offset_bottom = 240.0
-scale = Vector2(3.66062, 4.00074)
-text = "Sample Room
-Stage 4-1
-"
-metadata/_edit_use_anchors_ = true
 
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1558, 557)

@@ -20,7 +20,7 @@ var beethoven_talkable = false
 
 func _physics_process(_delta):
 	chair_rocking()
-	if Input.is_action_just_pressed("up") and beethoven_talkable == true:
+	if Input.is_action_just_pressed("talk") and beethoven_talkable == true:
 		beethoven_talk()
 	handle_beethoven_animations()
 	if dialogue_index == 7:

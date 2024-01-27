@@ -21,7 +21,7 @@ func _ready():
 	level_exit = current_room.get_node("Exit")
 	baby.position = level_entry.position
 	baby.HAS_FLUTE = false
-	baby.HAS_TUBA = true
+	baby.HAS_TUBA = false
 	baby.HAS_CYMBAL = false
 	baby.HAS_GUITAR = false
 	BGSet.texture = Background
@@ -50,6 +50,8 @@ func load_room(_which):
 	print("Next Room"+next_room.name)
 	
 	level_entry = next_room.get_node("Entry")
+	for mushroom in baby.all_shrooms: remove_child(mushroom)
+	baby.all_shrooms = []
 	remove_child(current_room)
 	current_room = next_room
 	level_exit = next_room.get_node("Exit")

@@ -51,7 +51,7 @@ func _physics_process(delta):
 	#Jump Controls
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y += JUMP_SPEED
-	if Input.is_action_just_pressed("flute") and is_on_floor():
+	if Input.is_action_just_pressed("flute") and is_on_floor() and HAS_FLUTE:
 		play_flute()
 	#Stop player from Wall Jumping/Dashing simultaneously
 	if !DASHING:

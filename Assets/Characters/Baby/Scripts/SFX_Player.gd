@@ -13,8 +13,8 @@ func _ready():
 	for i in range(0,5):
 		dash_sounds.append("res://Assets/Sound/SFX/Gameplay/Dash/Dash_"+str(i+1)+".wav")
 	
-	for i in range(0,1):
-		walljump_sounds.append("res://Assets/Sound/SFX/WallJump/PSGJ_WALLJUMP.ogg")
+	for i in range(0,5):
+		walljump_sounds.append("res://Assets/Sound/SFX/WallJump/PSGJ_WALLJUMP_v2_"+str(i+1)+".ogg")
 		#walljump_sounds.append("res://Assets/Sound/SFX/Gameplay/Dash/Dash_"+str(i+1)+".wav")
 	
 	for i in range(0,5):

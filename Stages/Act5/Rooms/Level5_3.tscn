@@ -31,17 +31,6 @@ shape = SubResource("RectangleShape2D_eq7n0")
 [node name="Sprite2D" type="Sprite2D" parent="Exit"]
 texture = ExtResource("2_734y1")
 
-[node name="Label" type="Label" parent="."]
-modulate = Color(1, 0.2, 0.152941, 1)
-offset_left = 176.0
-offset_top = 200.0
-offset_right = 304.0
-offset_bottom = 240.0
-scale = Vector2(3.66062, 4.00074)
-text = "Sample Room
-Stage 4-1
-"
-
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1546, 417)
 

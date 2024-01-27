@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://65hvrwjqf5ri"]
 
-[ext_resource type="Texture2D" uid="uid://chsr3md0vv8ci" path="res://Assets/_Placeholders/titlecard.png" id="1_l823a"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_x2hqq"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Controls.gd" id="3_ds148"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Edit_keys.gd" id="4_01q82"]
+[ext_resource type="Texture2D" uid="uid://ddp35hwgl7sa5" path="res://Assets/Title- A spore medley.png" id="4_rphho"]
 
 [sub_resource type="Gradient" id="Gradient_7c356"]
 
@@ -195,23 +195,14 @@ texture = SubResource("GradientTexture2D_2suou")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -387.0
-offset_top = -288.0
-offset_right = 388.336
-offset_bottom = -116.0
-texture = ExtResource("1_l823a")
+offset_left = -386.0
+offset_top = -310.0
+offset_right = 389.0
+offset_bottom = -66.0
+texture = ExtResource("4_rphho")
 expand_mode = 3
 
-[node name="Buttonlight" type="PointLight2D" parent="TextureRect"]
-position = Vector2(388.5, 88)
-scale = Vector2(12.2031, 2.75)
-color = Color(0.921569, 0.498039, 0.290196, 1)
-energy = 1.12
-blend_mode = 1
-texture = SubResource("GradientTexture2D_2suou")
-
 [node name="InputControl" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -550.0
 offset_top = -95.0

@@ -25,14 +25,12 @@ texture = ExtResource("2_2rlss")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 0.2, 0.152941, 1)
-offset_left = 176.0
-offset_top = 200.0
-offset_right = 304.0
-offset_bottom = 240.0
+offset_left = -471.0
+offset_top = 194.0
+offset_right = -216.0
+offset_bottom = 234.0
 scale = Vector2(3.66062, 4.00074)
-text = "Sample Room
-Stage 5
-"
+text = "Insert a really cool cutscene here"
 
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1570, 452)

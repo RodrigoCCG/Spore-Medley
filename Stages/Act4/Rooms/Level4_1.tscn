@@ -2,10 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://djxp5i1wj6tdn" path="res://Stages/Act1/Batch1Tiles.tres" id="1_se256"]
 [ext_resource type="Texture2D" uid="uid://6we3adimqjhg" path="res://Assets/_Placeholders/dot.png" id="2_7w607"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/purplishglowshroom.tscn" id="3_qj0k7"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="4_1b84k"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/whiteglowshroom.tscn" id="6_67n0i"]
-[ext_resource type="PackedScene" path="res://Assets/Environment/Props/PropEdited/bigglowshroom.tscn" id="6_xlfht"]
+[ext_resource type="PackedScene" uid="uid://buno6k6dxdde0" path="res://Assets/Environment/Props/PropEdited/purplishglowshroom.tscn" id="3_qj0k7"]
+[ext_resource type="PackedScene" uid="uid://b1ggp6b3fc2ey" path="res://Assets/Environment/Props/PropEdited/blueglowshroom.tscn" id="4_1b84k"]
+[ext_resource type="PackedScene" uid="uid://cj543jnpbfmo4" path="res://Assets/Environment/Props/PropEdited/whiteglowshroom.tscn" id="6_67n0i"]
+[ext_resource type="PackedScene" uid="uid://b7pohyu7kn645" path="res://Assets/Environment/Props/PropEdited/bigglowshroom.tscn" id="6_xlfht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7n0"]
 size = Vector2(580, 55.75)
@@ -26,17 +26,6 @@ shape = SubResource("RectangleShape2D_eq7n0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Exit"]
 texture = ExtResource("2_7w607")
-
-[node name="Label" type="Label" parent="."]
-modulate = Color(1, 0.2, 0.152941, 1)
-offset_left = 176.0
-offset_top = 200.0
-offset_right = 304.0
-offset_bottom = 240.0
-scale = Vector2(3.66062, 4.00074)
-text = "Sample Room
-Stage 4-1
-"
 
 [node name="Entry" type="Node2D" parent="."]
 position = Vector2(-1546, 417)

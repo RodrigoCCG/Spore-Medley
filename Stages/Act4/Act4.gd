@@ -43,6 +43,7 @@ func _physics_process(_delta):
 
 func load_room(_which):
 	var BGSet = get_parent().get_child(0).get_child(1)
+	if current_level == len(room_array)-1: baby.HAS_GUITAR = true
 	if current_level >= len(room_array):
 		get_tree().get_root().add_child(preload(next_act).instantiate())
 		queue_free()
@@ -55,6 +56,7 @@ func load_room(_which):
 	
 	level_entry = next_room.get_node("Entry")
 	for mushroom in baby.all_shrooms: remove_child(mushroom)
+	baby.all_shrooms = []
 	remove_child(current_room)
 	current_room = next_room
 	level_exit = next_room.get_node("Exit")
