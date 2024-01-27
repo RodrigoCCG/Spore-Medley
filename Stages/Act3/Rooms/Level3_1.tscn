@@ -17,7 +17,7 @@ layer_0/tile_data = PackedInt32Array(-983052, 196611, 1, 393204, 65541, 0, 45874
 layer_1/name = "Flip"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Web"
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(393208, 65541, 1, 393207, 65541, 1, 327685, 65541, 1, 196633, 65541, 1, 327696, 65541, 1)
 script = ExtResource("2_wb65s")
 source_layer = 5
 

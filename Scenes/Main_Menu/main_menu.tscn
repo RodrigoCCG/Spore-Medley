@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://65hvrwjqf5ri"]
+[gd_scene load_steps=10 format=3 uid="uid://65hvrwjqf5ri"]
 
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_x2hqq"]
+[ext_resource type="Texture2D" uid="uid://e3y3pswxwle8" path="res://Assets/Title - Act Select.png" id="2_pi8ho"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Controls.gd" id="3_ds148"]
+[ext_resource type="Texture2D" uid="uid://cjnsbayx8sayo" path="res://Assets/Title- Control.png" id="3_k141a"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/Edit_keys.gd" id="4_01q82"]
+[ext_resource type="Texture2D" uid="uid://cf7i5qcvmcsjq" path="res://Assets/Title - Exit.png" id="4_e65wr"]
 [ext_resource type="Texture2D" uid="uid://ddp35hwgl7sa5" path="res://Assets/Title- A spore medley.png" id="4_rphho"]
 
 [sub_resource type="Gradient" id="Gradient_7c356"]
@@ -32,8 +35,6 @@ offset_left = -98.0
 offset_top = 5.0
 offset_right = 91.0
 offset_bottom = 66.0
-text = "Select Act
-"
 
 [node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button"]
 position = Vector2(94, 31)
@@ -42,12 +43,16 @@ color = Color(0.294118, 0.686275, 0.8, 1)
 energy = 13.41
 texture = SubResource("GradientTexture2D_2suou")
 
+[node name="Sprite2D" type="Sprite2D" parent="mainmenuCLayer/Button"]
+position = Vector2(94.5, 30.5)
+scale = Vector2(0.277941, 0.305)
+texture = ExtResource("2_pi8ho")
+
 [node name="Button2" type="Button" parent="mainmenuCLayer"]
-offset_left = -99.0
-offset_top = 95.0
-offset_right = 90.0
-offset_bottom = 156.0
-text = "Keybinds"
+offset_left = -97.0
+offset_top = 98.0
+offset_right = 92.0
+offset_bottom = 159.0
 
 [node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button2"]
 position = Vector2(94, 31)
@@ -56,12 +61,16 @@ color = Color(0.294118, 0.686275, 0.8, 1)
 energy = 13.41
 texture = SubResource("GradientTexture2D_2suou")
 
+[node name="Sprite2D" type="Sprite2D" parent="mainmenuCLayer/Button2"]
+position = Vector2(93, 29.5)
+scale = Vector2(0.276471, 0.295)
+texture = ExtResource("3_k141a")
+
 [node name="Button3" type="Button" parent="mainmenuCLayer"]
 offset_left = -98.0
 offset_top = 191.0
 offset_right = 91.0
 offset_bottom = 252.0
-text = "Exit Game"
 
 [node name="Buttonlight" type="PointLight2D" parent="mainmenuCLayer/Button3"]
 position = Vector2(94, 31)
@@ -69,6 +78,11 @@ scale = Vector2(3, 0.96875)
 color = Color(0.294118, 0.686275, 0.8, 1)
 energy = 13.41
 texture = SubResource("GradientTexture2D_2suou")
+
+[node name="Sprite2D" type="Sprite2D" parent="mainmenuCLayer/Button3"]
+position = Vector2(94.5, 31.5)
+scale = Vector2(0.275, 0.305)
+texture = ExtResource("4_e65wr")
 
 [node name="InputControl" type="Panel" parent="mainmenuCLayer"]
 visible = false

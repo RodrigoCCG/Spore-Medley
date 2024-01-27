@@ -39,7 +39,7 @@ func play_walk():
 func play_dash():
 	var sound = randi_range(0,len(dash_sounds)-1)
 	stream = load(dash_sounds[sound])
-	volume_db = 0.0
+	volume_db = -0.0
 	play()
 	was_step = false
 	pass
@@ -55,7 +55,7 @@ func play_hook():
 func play_walljump():
 	var sound = randi_range(0,len(walljump_sounds)-1)
 	stream = load(walljump_sounds[sound])
-	volume_db = 0.0
+	volume_db = -6.0
 	play()
 	was_step = false
 	pass
